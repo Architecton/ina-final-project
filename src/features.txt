@@ -1,0 +1,5 @@
+# Add the '#' character before feature name to suppress its inclusion.
+
+feature1
+feature2
+feature3
