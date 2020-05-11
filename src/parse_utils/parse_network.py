@@ -55,9 +55,3 @@ def parse_network(path, *args, **kwargs):
                 else:
                     pass
 
-
-### TEST ###
-if __name__ == '__main__':
-    graph = parse_network("../data/dolphins", create_using=nx.Graph)
-    print(graph.nodes(data=True))
-

@@ -18,6 +18,10 @@ def train_test_split(network, test_size=0.1):
 
     Returns:
         (tuple): training and test sets, test network.
+
+    Raises:
+        ValueError: This exception is raised if the size of the test set is
+        not valid (not from interval (0.0, 1.0)).
     """
 
     
@@ -71,6 +75,10 @@ def repeated_train_test_split(network, n_rep, test_size=0.1):
 
     yields:
         (tuple): training and test sets, test network.
+    
+    Raises:
+        ValueError: This exception is raised if specified number of repetitions
+        is invalid (negative).
     """
     
     # Check arguments.
@@ -80,5 +88,4 @@ def repeated_train_test_split(network, n_rep, test_size=0.1):
     # Repeat train_test split specified number of times.
     for _ in range(n_rep):
         yield train_test_split(network, test_size)
-
 
