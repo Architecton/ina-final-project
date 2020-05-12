@@ -17,7 +17,7 @@ def process_and_save(avg_acc, avg_prfs, n_rep, clf_name, network_name):
         evaluation was performed.
     """
 
-    with open('../../results/results.txt', 'a') as f:
+    with open('../results/results.txt', 'a') as f:
 
         # Write header.
         f.write('##########\n')

@@ -27,14 +27,83 @@ def get_feature_extractor(features):
         Returns:
             (float): The extracted feature.
         """
-        
+
         # Extract specified feature.
-        if feature == 'feature1':
-            return 1.0
-        elif feature == 'feature2':
-            return 2.0
-        elif feature == 'feature3':
-            return 3.0
+        if feature == 'common-neighbors':
+
+            # Return number of common neighbors.
+            return len(set(network.neighbors(n1)).intersection(network.neighbors(n2)))
+
+        elif feature == 'jaccard-coefficient':
+            
+            # Return Jaccard coefficient for the node pair.
+            size_int = len(set(network.neighbors(n1)).intersection(network.neighbors(n2)))
+            size_un = len(set(network.neighbors(n1)).union(network.neighbors(n2)))
+            return size_int/size_un if size_un > 0.0 else 0.0
+
+        elif feature == 'hub-promoted':
+        
+            # Return Hub-promoted index.
+            size_int = len(set(network.neighbors(n1)).intersection(network.neighbors(n2)))
+            denom = min(len(set(network.neighbors(n1))), len(set(network.neighbors(n1))))
+            if denom > 0:
+                return size_int/denom
+            else:
+                return 0
+
+        elif feature == 'adamic-adar':
+            
+            # Compute and return Adamic-Adar index.
+            return np.sum([1/np.log(len(set(network.neighbors(n)))) 
+                for n in set(network.neighbors(n1)).intersection(network.neighbors(n2))])
+
+        elif feature == 'resource-allocation':
+            
+            # Compute and return resource-allocation index.
+            return np.sum([1/len(set(network.neighbors(n)))
+                for n in set(network.neighbors(n1)).intersection(network.neighbors(n2))])
+        
+        elif feature == 'sorenson':
+            
+            # Compute and return Sorenson index.
+            size_int = len(set(network.neighbors(n1)).intersection(network.neighbors(n2)))
+            denom = len(set(network.neighbors(n1))) + len(set(network.neighbors(n1)))
+            return size_int/denom if denom > 0.0 else 0.0
+        
+        elif feature == 'hub-depressed':
+        
+            # Return Hub-depressed index.
+            size_int = len(set(network.neighbors(n1)).intersection(network.neighbors(n2)))
+            denom = max(len(set(network.neighbors(n1))), len(set(network.neighbors(n1))))
+            if denom > 0:
+                return size_int/denom
+            else:
+                return 0
+        
+        elif feature == 'salton':
+            
+            # Compute and return Salton index.
+            size_int = len(set(network.neighbors(n1)).intersection(network.neighbors(n2)))
+            denom = np.sqrt(len(set(network.neighbors(n1))) * len(set(network.neighbors(n1))))
+            return size_int/denom if denom > 0.0 else 0.0
+        
+        elif feature == 'leicht-holme-nerman':
+            
+            # Compute and return Leicht-Holme-Nerman index.
+            size_int = len(set(network.neighbors(n1)).intersection(network.neighbors(n2)))
+            denom = len(set(network.neighbors(n1))) * len(set(network.neighbors(n1)))
+            return size_int/denom if denom > 0.0 else 0.0
+        
+        elif feature == 'preferential-attachment':
+            
+            # Compute and return preferential-attachment index.
+            return len(set(network.neighbors(n1)))*len(set(network.neighbors(n2)))
+        
+        elif feature == 'local-random-walk':
+            
+            # Compute and return preferential-attachment index.
+            return len(set(network.neighbors(n1)))*len(set(network.neighbors(n2)))
+
         else:
             raise ValueError('Unknown feature ' + feature)
     

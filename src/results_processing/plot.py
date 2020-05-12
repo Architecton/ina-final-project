@@ -1,5 +1,6 @@
 import numpy as np
 from sklearn import metrics
+import matplotlib.pyplot as plt
 
 
 def confusion_matrix(data_test, target_test, clf, network_name):

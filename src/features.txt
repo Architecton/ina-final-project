@@ -1,5 +1,13 @@
 # Add the '#' character before feature name to suppress its inclusion.
 
-feature1
-feature2
-feature3
+common-neighbors
+jaccard-coefficient
+hub-promoted
+adamic-adar
+resource-allocation
+sorenson
+hub-depressed
+salton
+leicht-holme-nerman
+preferential-attachment
+

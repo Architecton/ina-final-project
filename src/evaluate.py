@@ -1,15 +1,28 @@
+import numpy as np
 import networkx as nx
-from eval_utils import train_test_split, results_processing
+from eval_utils import train_test_split
 from feature_extraction import features, formatting
-import results_processing
+import results_processing.plot
+import results_processing.process
 import sklearn.metrics
+from sklearn.preprocessing import RobustScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import SVC
+from classifiers.feat_stacking_clf import FeatureStackingClf
+from sklearn.pipeline import Pipeline
 import argparse
 
 
 ### PARSING ARGUMENTS ####################################################
+def n_runs_check(val):
+    ival = int(val)
+    if ival <= 0:
+        raise argparse.ArgumentTypeError('The specified number of runs must be greater than 0.')
+    return ival
 parser = argparse.ArgumentParser(description='Evaluate link prediction methods on specified network.')
 parser.add_argument('networks', type=str, nargs='+')
-parser.add_argument('--clf', type=str, nargs=1, default='rf', 
+parser.add_argument('--n-runs', type=n_runs_check, default=1)
+parser.add_argument('--clf', type=str, default='rf', 
         choices=['rf', 'svm', 'stacking'], help='classifier to use for evaluation')
 args = parser.parse_args()
 ##########################################################################
@@ -26,17 +39,29 @@ if features_to_extract is not None:
 else:
     raise FileNotFoundError('features.txt file containing names of features to extract not found')
 
+
+# Initialize pipeline template.
+clf_pipeline = Pipeline([('scaling', RobustScaler())])
+
+
 # Initialize classifier.
 if args.clf == 'rf':
+    clf = RandomForestClassifier(n_estimators=100)
     clf.name = 'rf'
-    pass
 elif args.clf == 'svm':
-    clf.name == 'svm'
-    pass
+    clf = SVC(gamma='auto', probability=True)
+    clf.name = 'svm'
 elif args.clf == 'stacking':
-    clf.name == 'stacking'
-    pass
+    # TODO TODO TODO
+    subset_lengths = [2, 2, 2]
+    clf = FeatureStackingClf()
+    clf.name = 'stacking'
+
+# Add classifier to pipeline.
+clf_pipeline.steps.append(['clf', clf])
+
 ##########################################################################
+
 
 
 ### EVALUATION ###########################################################
@@ -49,7 +74,7 @@ for network_name in args.networks:
     network = nx.read_edgelist(DATA_PATH, create_using=nx.Graph)
 
     # Set number of train-test split repetitions and initialize counter of repetitions.
-    N_REP = 1
+    N_REP = args.n_runs
     idx_tts = 1
 
     # Initialize accumulators for classification accuracy, precision, recall, f-score and support.
@@ -68,8 +93,9 @@ for network_name in args.networks:
         # Format data (concatenate and shuffle)
         data_train, target_train = formatting.format_data(features_train_pos, features_train_neg)
         data_test, target_test = formatting.format_data(features_test_pos, features_test_neg)
-        
+
         # Train classifier and make predictions on test data.
+        clf.fit(data_train, target_train)
         pred = clf.predict(data_test)
         
         # Compute accuracy, precision, recall, f-score and support and add to accumulator.
@@ -90,7 +116,7 @@ for network_name in args.networks:
     avg_acc = acc_aggr/N_REP
     
     # Process and save results.
-    results_processing.process.process_and_save(avg_acc, avg_prfs)
+    results_processing.process.process_and_save(avg_acc, avg_prfs, N_REP, clf.name, network_name)
 
 ##########################################################################
 
