@@ -8,6 +8,7 @@ import sklearn.metrics
 from sklearn.preprocessing import RobustScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
+from sklearn.dummy import DummyClassifier
 from classifiers.feat_stacking_clf import FeatureStackingClf
 from sklearn.pipeline import Pipeline
 import argparse
@@ -23,9 +24,10 @@ parser = argparse.ArgumentParser(description='Evaluate link prediction methods o
 parser.add_argument('networks', type=str, nargs='+')
 parser.add_argument('--n-runs', type=n_runs_check, default=1)
 parser.add_argument('--clf', type=str, default='rf', 
-        choices=['rf', 'svm', 'stacking'], help='classifier to use for evaluation')
+        choices=['rf', 'svm', 'stacking', 'majority', 'uniform'], help='classifier to use for evaluation')
 args = parser.parse_args()
 ##########################################################################
+
 
 
 ### INITIALIZATION #######################################################
@@ -33,16 +35,9 @@ args = parser.parse_args()
 with open('features.txt', 'r') as f:
     features_to_extract = list(filter(lambda x: x != '' and x[0] != '#', map(lambda x: x.strip(), f.readlines())))
 
-# Get feature extractor.
-if features_to_extract is not None:
-    feature_extractor = features.get_feature_extractor(features_to_extract)
-else:
-    raise FileNotFoundError('features.txt file containing names of features to extract not found')
-
 
 # Initialize pipeline template.
 clf_pipeline = Pipeline([('scaling', RobustScaler())])
-
 
 # Initialize classifier.
 if args.clf == 'rf':
@@ -52,10 +47,16 @@ elif args.clf == 'svm':
     clf = SVC(gamma='auto', probability=True)
     clf.name = 'svm'
 elif args.clf == 'stacking':
-    # TODO TODO TODO
-    subset_lengths = [2, 2, 2]
+    # TODO TODO TODO add subsets as properties later when features already
+    # extracted.
     clf = FeatureStackingClf()
     clf.name = 'stacking'
+elif args.clf == 'majority':
+    clf = DummyClassifier(strategy='most_frequent')
+    clf.name = 'majority'
+elif args.clf == 'uniform':
+    clf = DummyClassifier(strategy='uniform')
+    clf.name = 'uniform'
 
 # Add classifier to pipeline.
 clf_pipeline.steps.append(['clf', clf])
@@ -67,11 +68,15 @@ clf_pipeline.steps.append(['clf', clf])
 ### EVALUATION ###########################################################
 
 # Go over specified networks and evaluate prediction method on each one.
-for network_name in args.networks:
+for network_path in args.networks:
+
+    print("evaluating {0}".format(network_path[network_path.rfind('/')+1:]))
 
     # Parse network.
-    DATA_PATH = '../data/' + network_name
-    network = nx.read_edgelist(DATA_PATH, create_using=nx.Graph)
+    network = nx.read_edgelist(network_path, create_using=nx.Graph)
+
+    # Initialize feature extractor. 
+    feature_extractor = features.get_feature_extractor(network, features_to_extract)
 
     # Set number of train-test split repetitions and initialize counter of repetitions.
     N_REP = args.n_runs
@@ -82,8 +87,8 @@ for network_name in args.networks:
     prfs_aggr = np.zeros((4, 2), dtype=float)
 
     # Perform specified number of train-test splits and average classification metrics.
-    for train_edges_pos, test_edges_pos, train_edges_neg, test_edges_neg, test_network in train_test_split.repeated_train_test_split(network, n_rep=N_REP, test_size=0.1):
-        
+    for train_edges_pos, test_edges_pos, train_edges_neg, test_edges_neg, test_network in train_test_split.repeated_train_test_split(network, n_rep=N_REP, test_size=0.2):
+
         # Get features for training and test nodes.
         features_train_pos = features.get_features(network, train_edges_pos, feature_extractor)
         features_train_neg = features.get_features(network, train_edges_neg, feature_extractor)
@@ -91,8 +96,8 @@ for network_name in args.networks:
         features_test_neg = features.get_features(network, test_edges_neg, feature_extractor)
 
         # Format data (concatenate and shuffle)
-        data_train, target_train = formatting.format_data(features_train_pos, features_train_neg)
-        data_test, target_test = formatting.format_data(features_test_pos, features_test_neg)
+        data_train, target_train = formatting.format_data(features_train_pos, features_train_neg, shuffle=True)
+        data_test, target_test = formatting.format_data(features_test_pos, features_test_neg, shuffle=True)
 
         # Train classifier and make predictions on test data.
         clf.fit(data_train, target_train)
@@ -105,8 +110,8 @@ for network_name in args.networks:
         # If at last train-test split, plot confusion matrix and ROC curve.
         if idx_tts == N_REP:
             # Plot confusion matrix and ROC curve.
-            results_processing.plot.confusion_matrix(data_test, target_test, clf, network_name)
-            results_processing.plot.roc(data_test, target_test, clf, network_name)
+            results_processing.plot.confusion_matrix(data_test, target_test, clf, network_path[network_path.rfind('/')+1:])
+            results_processing.plot.roc(data_test, target_test, clf, network_path[network_path.rfind('/')+1:])
 
         # Increment train-test split counter.
         idx_tts += 1
@@ -116,7 +121,7 @@ for network_name in args.networks:
     avg_acc = acc_aggr/N_REP
     
     # Process and save results.
-    results_processing.process.process_and_save(avg_acc, avg_prfs, N_REP, clf.name, network_name)
-
+    results_processing.process.process_and_save(avg_acc, avg_prfs, N_REP, clf.name, network_path[network_path.rfind('/')+1:])
+    
 ##########################################################################
 

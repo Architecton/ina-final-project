@@ -10,4 +10,5 @@ hub-depressed
 salton
 leicht-holme-nerman
 preferential-attachment
-
+# simrank
+# random

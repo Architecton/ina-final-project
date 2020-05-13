@@ -1,56 +1,14 @@
 ##########
-Date: 12/05/2020 18:34:36
-network: karate
+Date: 13/05/2020 18:33:44
+network: amazon
 clf: rf
 ##########
 
-average classification accuracy: 0.8125
+average classification accuracy: 0.9974
 number of runs: 1
 
 | class   | precission | recall | f-score | support |
 |---------|------------|--------|---------|---------|
-| no link | 0.73       | 1.00   | 0.84    | 8.00 |
-| link    | 1.00       | 0.62   | 0.77    | 8.00 |
-
-##########
-Date: 12/05/2020 18:35:45
-network: karate
-clf: rf
-##########
-
-average classification accuracy: 0.8125
-number of runs: 2
-
-| class   | precission | recall | f-score | support |
-|---------|------------|--------|---------|---------|
-| no link | 0.75       | 0.94   | 0.83    | 8.00 |
-| link    | 0.92       | 0.69   | 0.79    | 8.00 |
-
-##########
-Date: 12/05/2020 18:40:00
-network: karate
-clf: rf
-##########
-
-average classification accuracy: 0.8750
-number of runs: 1
-
-| class   | precission | recall | f-score | support |
-|---------|------------|--------|---------|---------|
-| no link | 1.00       | 0.75   | 0.86    | 8.00 |
-| link    | 0.80       | 1.00   | 0.89    | 8.00 |
-
-##########
-Date: 12/05/2020 18:50:04
-network: karate
-clf: svm
-##########
-
-average classification accuracy: 0.7500
-number of runs: 1
-
-| class   | precission | recall | f-score | support |
-|---------|------------|--------|---------|---------|
-| no link | 0.75       | 0.75   | 0.75    | 8.00 |
-| link    | 0.75       | 0.75   | 0.75    | 8.00 |
+| no link | 1.00       | 1.00   | 1.00    | 781.00 |
+| link    | 1.00       | 1.00   | 1.00    | 781.00 |
 

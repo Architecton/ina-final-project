@@ -1,11 +1,13 @@
 import numpy as np
+import networkx as nx
 
 
-def get_feature_extractor(features):
+def get_feature_extractor(network, features):
     """
     Get function that extracts specified features from a pair of nodes.
 
     Args:
+        network (object): Networkx representation of the network.
         features (list): List of names of features to extract.
     
     Returns:
@@ -52,16 +54,18 @@ def get_feature_extractor(features):
                 return 0
 
         elif feature == 'adamic-adar':
-            
+
             # Compute and return Adamic-Adar index.
             return np.sum([1/np.log(len(set(network.neighbors(n)))) 
-                for n in set(network.neighbors(n1)).intersection(network.neighbors(n2))])
+                for n in set(network.neighbors(n1)).intersection(network.neighbors(n2))
+                if len(set(network.neighbors(n))) > 1])
 
         elif feature == 'resource-allocation':
             
             # Compute and return resource-allocation index.
-            return np.sum([1/len(set(network.neighbors(n)))
-                for n in set(network.neighbors(n1)).intersection(network.neighbors(n2))])
+            return np.sum([1/len(set(network.neighbors(n))) 
+                for n in set(network.neighbors(n1)).intersection(network.neighbors(n2))
+                if len(set(network.neighbors(n))) > 0])
         
         elif feature == 'sorenson':
             
@@ -100,10 +104,19 @@ def get_feature_extractor(features):
             return len(set(network.neighbors(n1)))*len(set(network.neighbors(n2)))
         
         elif feature == 'local-random-walk':
-            
+            # TODO 
             # Compute and return preferential-attachment index.
             return len(set(network.neighbors(n1)))*len(set(network.neighbors(n2)))
+        
+        elif feature == 'simrank':
 
+            # Return Simrank score.
+            return simrank_scores[n1][n2]
+
+        elif feature == 'random':
+
+            # Return random value as feature.
+            return np.random.rand()
         else:
             raise ValueError('Unknown feature ' + feature)
     
@@ -120,6 +133,12 @@ def get_feature_extractor(features):
         """
 
         return np.hstack([get_feature(network, n1, n2, feature) for feature in features])
+    
+    
+    ### PRECOMPUTED MEASURES FOR WHOLE NETWORK ###
+    if 'simrank' in features:
+        simrank_scores = nx.algorithms.similarity.simrank_similarity(network)
+    ##############################################
    
     return (lambda network, n1, n2 : feature_extractor(network, n1, n2, features))
  
