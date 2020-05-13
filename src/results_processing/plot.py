@@ -61,7 +61,6 @@ def roc(data_test, target_test, clf, network_name):
     plt.ylim([0.0, 1.05])
     plt.xlabel('False Positive Rate')
     plt.ylabel('True Positive Rate')
-    plt.title('Receiver operating characteristic example')
     plt.legend(loc="lower right")
     plt.savefig('../results/plots/roc_' + network_name + '_' + clf.name + '.png')
     plt.clf()
