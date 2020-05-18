@@ -12,4 +12,4 @@ leicht-holme-nerman
 preferential-attachment
 # simrank
 local-random-walk
-random
+# random

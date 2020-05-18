@@ -1,0 +1,42 @@
+#####
+classifier: gboost
+network: scsc
+#####
+
+local-random-walk: 0.4018
+preferential-attachment: 0.2518
+adamic-adar: 0.0938
+hub-promoted: 0.0734
+leicht-holme-nerman: 0.0718
+jaccard-coefficient: 0.0583
+resource-allocation: 0.0459
+common-neighbors: 0.0032
+
+#####
+classifier: gboosting
+network: scsc
+#####
+
+local-random-walk: 0.4740
+preferential-attachment: 0.2436
+jaccard-coefficient: 0.0775
+leicht-holme-nerman: 0.0597
+adamic-adar: 0.0577
+hub-promoted: 0.0541
+resource-allocation: 0.0297
+common-neighbors: 0.0040
+
+#####
+classifier: gboosting
+network: amazon
+#####
+
+local-random-walk: 0.3889
+preferential-attachment: 0.3402
+jaccard-coefficient: 0.0974
+adamic-adar: 0.0730
+leicht-holme-nerman: 0.0466
+hub-promoted: 0.0429
+resource-allocation: 0.0074
+common-neighbors: 0.0037
+

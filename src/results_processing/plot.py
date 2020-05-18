@@ -3,7 +3,7 @@ from sklearn import metrics
 import matplotlib.pyplot as plt
 
 
-def confusion_matrix(data_test, target_test, clf, network_name):
+def confusion_matrix(data_test, target_test, clf, clf_name, network_name):
     """
     Plot and save confuction matrix.
 
@@ -26,12 +26,12 @@ def confusion_matrix(data_test, target_test, clf, network_name):
 
     disp.figure_.set_size_inches(9.0, 9.0, forward=True)
     plt.tight_layout()
-    plt.savefig('../results/plots/cfm_' + network_name + '_' + clf.name + '.png')
+    plt.savefig('../results/plots/cfm_' + network_name + '_' + clf_name + '.png')
     plt.clf()
     plt.close()
 
 
-def roc(data_test, target_test, clf, network_name):
+def roc(data_test, target_test, clf, clf_name, network_name):
     """
     Plot ROC curve using train-test split and save results to file.
     
@@ -62,7 +62,7 @@ def roc(data_test, target_test, clf, network_name):
     plt.xlabel('False Positive Rate')
     plt.ylabel('True Positive Rate')
     plt.legend(loc="lower right")
-    plt.savefig('../results/plots/roc_' + network_name + '_' + clf.name + '.png')
+    plt.savefig('../results/plots/roc_' + network_name + '_' + clf_name + '.png')
     plt.clf()
     plt.close()
 

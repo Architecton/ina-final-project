@@ -24,7 +24,7 @@ class GradientBoostingClassifier(BaseEstimator, ClassifierMixin):
         num_class (int): Number of different classes if performing multi-class classification.
     """
 
-    def __init__(self, params=None, objective='binary:logistic', n_rounds=2000, num_class=-1):
+    def __init__(self, params=None, objective='binary:logistic', n_rounds=1000, num_class=-1):
 
         # Set parameters.
         if params is None:
@@ -137,4 +137,22 @@ class GradientBoostingClassifier(BaseEstimator, ClassifierMixin):
         
         # Score predictions.
         return accuracy_score(y, self.predict(X), sample_weight=sample_weight)
+    
+    
+    def score_features(self, f_to_name):
+        """
+        Score feature importances.
+
+        Args:
+            f_to_name (dict): Dictionary mapping feature enumerations such as 'f0', 'f1', ...
+            to feature names.
+
+        Returns:
+            (dict): Dictionary mapping feature names as defined in f_to_name parameter to
+            their estimated importances.
+        """
+
+        f_scores = self._gbm.get_fscore()
+        sum_f_scores = sum(f_scores.values())
+        return {f_to_name[key] : val/sum_f_scores for key, val in f_scores.items()}
 

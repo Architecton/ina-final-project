@@ -12,6 +12,7 @@ from sklearn.dummy import DummyClassifier
 from classifiers.feat_stacking_clf import FeatureStackingClf
 from classifiers.gboostclf import GradientBoostingClassifier
 from sklearn.pipeline import Pipeline
+import warnings
 import argparse
 
 
@@ -23,9 +24,10 @@ def n_runs_check(val):
     return ival
 parser = argparse.ArgumentParser(description='Evaluate link prediction methods on specified network.')
 parser.add_argument('networks', type=str, nargs='+')
-parser.add_argument('--n-runs', type=n_runs_check, default=1)
-parser.add_argument('--clf', type=str, default='rf', choices=['rf', 'svm', 'stacking', 'gboost', 'majority', 'uniform'], help='classifier to use for evaluation')
-parser.add_argument('--scatter', type=str, nargs='+', help='plot a scatterplot for up to three different features')
+parser.add_argument('--n-runs', type=n_runs_check, default=1, help='Number of runs of the train-test split to perform.')
+parser.add_argument('--clf', type=str, default='rf', choices=['rf', 'svm', 'stacking', 'gboosting', 'majority', 'uniform'], help='Classifier to use for evaluation')
+parser.add_argument('--scatter', type=str, nargs='+', help='plot a scatterplot for up to three different features') # TODO
+parser.add_argument('--eval-features', action='store_true', help='Evaluate feature importance using specified classifier (if the classifier supports this)') # TODO
 args = parser.parse_args()
 if args.scatter is not None and len(args.scatter) not in (2, 3):
     parser.error('Can only plot 2 or 3 different features'.format(len(args.scatter)))
@@ -34,9 +36,11 @@ if args.scatter is not None and len(args.scatter) not in (2, 3):
 
 
 ### INITIALIZATION #######################################################
+
 # Read list of features to extract.
 with open('features.txt', 'r') as f:
-    features_to_extract = list(filter(lambda x: x != '' and x[0] != '#', map(lambda x: x.strip(), f.readlines())))
+    features_to_extract = list(filter(lambda x: x != '' and x[0] != '#', 
+        map(lambda x: x.strip(), f.readlines())))
 
 
 # Initialize pipeline template.
@@ -54,9 +58,9 @@ elif args.clf == 'stacking':
     # extracted.
     clf = FeatureStackingClf()
     clf.name = 'stacking'
-elif args.clf == 'gboost':
+elif args.clf == 'gboosting':
     clf = GradientBoostingClassifier() 
-    clf.name = 'gboost'
+    clf.name = 'gboosting'
 elif args.clf == 'majority':
     clf = DummyClassifier(strategy='most_frequent')
     clf.name = 'majority'
@@ -107,9 +111,47 @@ for network_path in args.networks:
         data_test, target_test = formatting.format_data(features_test_pos, features_test_neg, shuffle=True)
 
         # Train classifier and make predictions on test data.
-        clf.fit(data_train, target_train)
-        pred = clf.predict(data_test)
+        clf_pipeline.fit(data_train, target_train)
+        pred = clf_pipeline.predict(data_test)
+
         
+        # If evaluating feature importance and first network.
+        if args.eval_features and idx_tts == 1:
+
+            if len(args.networks) > 1:
+                warnings.warn('Feature importance will be estimated only '
+                        'on the first specified network ({0}).'.format(network_path[network_path.rfind('/')+1:]), RuntimeWarning)
+
+            # If classifier supports feature scoring.
+            if clf_pipeline.named_steps['clf'].name in {'gboosting', 'logreg'}:
+
+                # Parse feature names.
+                with open('./features.txt', 'r') as f:
+                    feature_names = list(filter(lambda x: x != '' and x[0] != '#', 
+                        map(lambda x: x.strip(), f.readlines())))
+
+                    # Get dictionary mapping feature enumerations to feature names.
+                    f_to_name = {'f' + str(idx) : feature_names[idx] for idx in range(len(feature_names))}
+
+                # Get feature scores.
+                scores = clf_pipeline.named_steps['clf'].score_features(f_to_name)
+
+                # Write features scores to file.
+                with open('../results/feature_scores.txt', 'a') as f:
+                    f.write('#####\n')
+                    f.write('classifier: {0}\n'.format(clf_pipeline.named_steps['clf'].name))
+                    f.write('network: {0}\n'.format(network_path[network_path.rfind('/')+1:]))
+                    f.write('#####\n\n')
+                    for (name, score) in [(name, score) for name, score in \
+                            sorted(scores.items(), key=lambda x: x[1], reverse=True)]:
+                        f.write('{0}: {1:.4f}\n'.format(name, score))
+                    f.write('\n')
+            else:
+                warnings.warn('Feature importance estimation not supported for '
+                        'selected classifier ({0}). Skipping.'.format(clf_pipeline.named_steps['clf'].name), 
+                        RuntimeWarning)
+
+
         # Compute accuracy, precision, recall, f-score and support and add to accumulator.
         acc_aggr += sklearn.metrics.accuracy_score(target_test, pred)
         prfs_aggr += np.vstack(sklearn.metrics.precision_recall_fscore_support(target_test, pred))
@@ -117,8 +159,8 @@ for network_path in args.networks:
         # If at last train-test split, plot confusion matrix and ROC curve.
         if idx_tts == N_REP:
             # Plot confusion matrix and ROC curve.
-            results_processing.plot.confusion_matrix(data_test, target_test, clf, network_path[network_path.rfind('/')+1:])
-            results_processing.plot.roc(data_test, target_test, clf, network_path[network_path.rfind('/')+1:])
+            results_processing.plot.confusion_matrix(data_test, target_test, clf_pipeline, clf_pipeline.named_steps['clf'].name, network_path[network_path.rfind('/')+1:])
+            results_processing.plot.roc(data_test, target_test, clf_pipeline, clf_pipeline.named_steps['clf'].name, network_path[network_path.rfind('/')+1:])
 
         # Increment train-test split counter.
         idx_tts += 1
@@ -129,6 +171,6 @@ for network_path in args.networks:
     
     # Process and save results.
     results_processing.process.process_and_save(avg_acc, avg_prfs, N_REP, clf.name, network_path[network_path.rfind('/')+1:])
-    
+        
 ##########################################################################
 
