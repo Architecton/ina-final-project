@@ -446,3 +446,31 @@ number of runs: 1
 | no link | 1.00       | 1.00   | 1.00    | 781.00 |
 | link    | 1.00       | 1.00   | 1.00    | 781.00 |
 
+##########
+Date: 18/05/2020 18:35:56
+network: scsc
+clf: logreg
+##########
+
+average classification accuracy: 0.9250
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.90       | 0.96   | 0.93    | 120.00 |
+| link    | 0.96       | 0.89   | 0.92    | 120.00 |
+
+##########
+Date: 18/05/2020 18:40:45
+network: scsc
+clf: logreg
+##########
+
+average classification accuracy: 0.9583
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.97       | 0.95   | 0.96    | 120.00 |
+| link    | 0.95       | 0.97   | 0.96    | 120.00 |
+

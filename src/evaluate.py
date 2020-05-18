@@ -8,6 +8,7 @@ import sklearn.metrics
 from sklearn.preprocessing import RobustScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
+from sklearn.linear_model import LogisticRegression
 from sklearn.dummy import DummyClassifier
 from classifiers.feat_stacking_clf import FeatureStackingClf
 from classifiers.gboostclf import GradientBoostingClassifier
@@ -24,10 +25,14 @@ def n_runs_check(val):
     return ival
 parser = argparse.ArgumentParser(description='Evaluate link prediction methods on specified network.')
 parser.add_argument('networks', type=str, nargs='+')
-parser.add_argument('--n-runs', type=n_runs_check, default=1, help='Number of runs of the train-test split to perform.')
-parser.add_argument('--clf', type=str, default='rf', choices=['rf', 'svm', 'stacking', 'gboosting', 'majority', 'uniform'], help='Classifier to use for evaluation')
-parser.add_argument('--scatter', type=str, nargs='+', help='plot a scatterplot for up to three different features') # TODO
-parser.add_argument('--eval-features', action='store_true', help='Evaluate feature importance using specified classifier (if the classifier supports this)') # TODO
+parser.add_argument('--n-runs', type=n_runs_check, default=1, 
+        help='Number of runs of the train-test split to perform.')
+parser.add_argument('--clf', type=str, default='rf', 
+        choices=['rf', 'svm', 'stacking', 'logreg', 'gboosting', 'majority', 'uniform'], help='Classifier to use for evaluation')
+parser.add_argument('--scatter', type=str, nargs='+', 
+        help='plot a scatterplot for up to three different features') # TODO
+parser.add_argument('--eval-features', action='store_true', 
+        help='Evaluate feature importance using specified classifier (if the classifier supports this)')
 args = parser.parse_args()
 if args.scatter is not None and len(args.scatter) not in (2, 3):
     parser.error('Can only plot 2 or 3 different features'.format(len(args.scatter)))
@@ -58,6 +63,9 @@ elif args.clf == 'stacking':
     # extracted.
     clf = FeatureStackingClf()
     clf.name = 'stacking'
+elif args.clf == 'logreg':
+    clf = LogisticRegression(max_iter=1000, C=1)
+    clf.name = 'logreg'
 elif args.clf == 'gboosting':
     clf = GradientBoostingClassifier() 
     clf.name = 'gboosting'
@@ -134,7 +142,11 @@ for network_path in args.networks:
                     f_to_name = {'f' + str(idx) : feature_names[idx] for idx in range(len(feature_names))}
 
                 # Get feature scores.
-                scores = clf_pipeline.named_steps['clf'].score_features(f_to_name)
+                if clf_pipeline.named_steps['clf'].name == 'gboosting':
+                    scores = clf_pipeline.named_steps['clf'].score_features(f_to_name)
+                elif clf_pipeline.named_steps['clf'].name == 'logreg':
+                    weights = np.abs(clf_pipeline.named_steps['clf'].coef_[0])/sum(np.abs(clf_pipeline.named_steps['clf'].coef_[0]))
+                    scores = {f_to_name['f' + str(idx)] : weights[idx] for idx in range(len(weights))}
 
                 # Write features scores to file.
                 with open('../results/feature_scores.txt', 'a') as f:

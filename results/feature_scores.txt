@@ -40,3 +40,37 @@ hub-promoted: 0.0429
 resource-allocation: 0.0074
 common-neighbors: 0.0037
 
+#####
+classifier: logreg
+network: scsc
+#####
+
+local-random-walk: 0.4724
+jaccard-coefficient: 0.1192
+common-neighbors: 0.1184
+adamic-adar: 0.0871
+resource-allocation: 0.0564
+preferential-attachment: 0.0391
+hub-promoted: 0.0246
+sorenson: 0.0246
+hub-depressed: 0.0246
+salton: 0.0246
+leicht-holme-nerman: 0.0091
+
+#####
+classifier: logreg
+network: scsc
+#####
+
+local-random-walk: 0.6035
+jaccard-coefficient: 0.1106
+resource-allocation: 0.0816
+adamic-adar: 0.0681
+preferential-attachment: 0.0526
+common-neighbors: 0.0508
+hub-promoted: 0.0081
+sorenson: 0.0081
+hub-depressed: 0.0081
+salton: 0.0081
+leicht-holme-nerman: 0.0005
+
