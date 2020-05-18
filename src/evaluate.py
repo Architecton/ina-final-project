@@ -10,6 +10,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.dummy import DummyClassifier
 from classifiers.feat_stacking_clf import FeatureStackingClf
+from classifiers.gboostclf import GradientBoostingClassifier
 from sklearn.pipeline import Pipeline
 import argparse
 
@@ -23,9 +24,11 @@ def n_runs_check(val):
 parser = argparse.ArgumentParser(description='Evaluate link prediction methods on specified network.')
 parser.add_argument('networks', type=str, nargs='+')
 parser.add_argument('--n-runs', type=n_runs_check, default=1)
-parser.add_argument('--clf', type=str, default='rf', 
-        choices=['rf', 'svm', 'stacking', 'majority', 'uniform'], help='classifier to use for evaluation')
+parser.add_argument('--clf', type=str, default='rf', choices=['rf', 'svm', 'stacking', 'gboost', 'majority', 'uniform'], help='classifier to use for evaluation')
+parser.add_argument('--scatter', type=str, nargs='+', help='plot a scatterplot for up to three different features')
 args = parser.parse_args()
+if args.scatter is not None and len(args.scatter) not in (2, 3):
+    parser.error('Can only plot 2 or 3 different features'.format(len(args.scatter)))
 ##########################################################################
 
 
@@ -51,6 +54,9 @@ elif args.clf == 'stacking':
     # extracted.
     clf = FeatureStackingClf()
     clf.name = 'stacking'
+elif args.clf == 'gboost':
+    clf = GradientBoostingClassifier() 
+    clf.name = 'gboost'
 elif args.clf == 'majority':
     clf = DummyClassifier(strategy='most_frequent')
     clf.name = 'majority'
@@ -72,8 +78,9 @@ for network_path in args.networks:
 
     print("evaluating {0}".format(network_path[network_path.rfind('/')+1:]))
 
-    # Parse network.
-    network = nx.read_edgelist(network_path, create_using=nx.Graph)
+    # Parse network and relabel nodes.
+    network_raw = nx.read_edgelist(network_path, create_using=nx.Graph)
+    network = nx.convert_node_labels_to_integers(network_raw, first_label=0)
 
     # Initialize feature extractor. 
     feature_extractor = features.get_feature_extractor(network, features_to_extract)

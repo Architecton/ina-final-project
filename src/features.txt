@@ -11,4 +11,5 @@ salton
 leicht-holme-nerman
 preferential-attachment
 # simrank
-# random
+local-random-walk
+random

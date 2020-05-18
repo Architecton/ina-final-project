@@ -1,5 +1,6 @@
 import numpy as np
 import networkx as nx
+import sklearn.preprocessing
 
 
 def get_feature_extractor(network, features):
@@ -104,9 +105,19 @@ def get_feature_extractor(network, features):
             return len(set(network.neighbors(n1)))*len(set(network.neighbors(n2)))
         
         elif feature == 'local-random-walk':
-            # TODO 
-            # Compute and return preferential-attachment index.
-            return len(set(network.neighbors(n1)))*len(set(network.neighbors(n2)))
+
+
+            # Compute and return local random walk similarity score.
+            pi_x = np.zeros(p_tran.shape[0], dtype=float)
+            pi_x[n1] = 1.0
+            pi_y = np.zeros(p_tran.shape[0], dtype=float)
+            pi_y[n2] = 1.0
+            for t in range(10):
+                pi_x = p_tran.dot(pi_x)
+                pi_y = p_tran.dot(pi_y)
+
+            return network.degree[n1]/(2*network.number_of_edges()) + pi_x[n2] + network.degree[n2]/(2*network.number_of_edges()) + pi_y[n1]
+
         
         elif feature == 'simrank':
 
@@ -138,6 +149,10 @@ def get_feature_extractor(network, features):
     ### PRECOMPUTED MEASURES FOR WHOLE NETWORK ###
     if 'simrank' in features:
         simrank_scores = nx.algorithms.similarity.simrank_similarity(network)
+    if 'local-random-walk' in features:
+        adj = nx.to_scipy_sparse_matrix(network)
+        p_tran = sklearn.preprocessing.normalize(adj, norm='l1', axis=0)
+
     ##############################################
    
     return (lambda network, n1, n2 : feature_extractor(network, n1, n2, features))

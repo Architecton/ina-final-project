@@ -12,3 +12,297 @@ number of runs: 1
 | no link | 1.00       | 1.00   | 1.00    | 781.00 |
 | link    | 1.00       | 1.00   | 1.00    | 781.00 |
 
+##########
+Date: 13/05/2020 18:38:08
+network: circles
+clf: rf
+##########
+
+average classification accuracy: 0.9779
+number of runs: 1
+
+| class   | precission | recall | f-score | support  |
+|---------|------------|--------|---------|----------|
+| no link | 0.98       | 0.97   | 0.98    | 17647.00 |
+| link    | 0.97       | 0.98   | 0.98    | 17647.00 |
+
+##########
+Date: 13/05/2020 18:38:09
+network: dgae
+clf: rf
+##########
+
+average classification accuracy: 0.8265
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.79       | 0.90   | 0.84    | 49.00 |
+| link    | 0.88       | 0.76   | 0.81    | 49.00 |
+
+##########
+Date: 13/05/2020 18:38:26
+network: djava
+clf: rf
+##########
+
+average classification accuracy: 0.9332
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.93       | 0.94   | 0.93    | 2216.00 |
+| link    | 0.94       | 0.93   | 0.93    | 2216.00 |
+
+##########
+Date: 13/05/2020 18:38:32
+network: djavax
+clf: rf
+##########
+
+average classification accuracy: 0.9294
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.90       | 0.97   | 0.93    | 1587.00 |
+| link    | 0.97       | 0.89   | 0.93    | 1587.00 |
+
+##########
+Date: 13/05/2020 18:38:34
+network: djung
+clf: rf
+##########
+
+average classification accuracy: 0.8812
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.86       | 0.90   | 0.88    | 261.00 |
+| link    | 0.90       | 0.86   | 0.88    | 261.00 |
+
+##########
+Date: 13/05/2020 18:38:34
+network: dolphins
+clf: rf
+##########
+
+average classification accuracy: 0.7656
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.73       | 0.84   | 0.78    | 32.00 |
+| link    | 0.81       | 0.69   | 0.75    | 32.00 |
+
+##########
+Date: 13/05/2020 18:38:37
+network: iui
+clf: rf
+##########
+
+average classification accuracy: 0.9904
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.98       | 1.00   | 0.99    | 676.00 |
+| link    | 1.00       | 0.98   | 0.99    | 676.00 |
+
+##########
+Date: 13/05/2020 18:38:37
+network: karate
+clf: rf
+##########
+
+average classification accuracy: 0.7812
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.85       | 0.69   | 0.76    | 16.00 |
+| link    | 0.74       | 0.88   | 0.80    | 16.00 |
+
+##########
+Date: 13/05/2020 18:38:38
+network: scsc
+clf: rf
+##########
+
+average classification accuracy: 0.9375
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.96       | 0.91   | 0.94    | 120.00 |
+| link    | 0.91       | 0.97   | 0.94    | 120.00 |
+
+##########
+Date: 13/05/2020 18:38:40
+network: slavko
+clf: rf
+##########
+
+average classification accuracy: 0.9099
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.90       | 0.92   | 0.91    | 444.00 |
+| link    | 0.92       | 0.90   | 0.91    | 444.00 |
+
+##########
+Date: 13/05/2020 18:39:37
+network: ssc
+clf: rf
+##########
+
+average classification accuracy: 0.9696
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.96       | 0.99   | 0.97    | 5988.00 |
+| link    | 0.99       | 0.95   | 0.97    | 5988.00 |
+
+##########
+Date: 13/05/2020 19:45:55
+network: dolphins
+clf: rf
+##########
+
+average classification accuracy: 0.6562
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.66       | 0.66   | 0.66    | 32.00 |
+| link    | 0.66       | 0.66   | 0.66    | 32.00 |
+
+##########
+Date: 13/05/2020 19:53:19
+network: scsc
+clf: rf
+##########
+
+average classification accuracy: 0.8708
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.87       | 0.87   | 0.87    | 120.00 |
+| link    | 0.87       | 0.88   | 0.87    | 120.00 |
+
+##########
+Date: 13/05/2020 19:56:15
+network: scsc
+clf: rf
+##########
+
+average classification accuracy: 0.8458
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.87       | 0.81   | 0.84    | 120.00 |
+| link    | 0.82       | 0.88   | 0.85    | 120.00 |
+
+##########
+Date: 13/05/2020 19:58:04
+network: scsc
+clf: rf
+##########
+
+average classification accuracy: 0.9417
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.94       | 0.94   | 0.94    | 120.00 |
+| link    | 0.94       | 0.94   | 0.94    | 120.00 |
+
+##########
+Date: 13/05/2020 19:58:32
+network: scsc
+clf: rf
+##########
+
+average classification accuracy: 0.9375
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.97       | 0.90   | 0.94    | 120.00 |
+| link    | 0.91       | 0.97   | 0.94    | 120.00 |
+
+##########
+Date: 13/05/2020 22:07:31
+network: arXiv-act
+clf: rf
+##########
+
+average classification accuracy: 0.9697
+number of runs: 1
+
+| class   | precission | recall | f-score | support   |
+|---------|------------|--------|---------|-----------|
+| no link | 0.98       | 0.96   | 0.97    | 102206.00 |
+| link    | 0.96       | 0.98   | 0.97    | 102206.00 |
+
+##########
+Date: 13/05/2020 23:05:47
+network: arXiv-cit
+clf: rf
+##########
+
+average classification accuracy: 0.9671
+number of runs: 1
+
+| class   | precission | recall | f-score | support  |
+|---------|------------|--------|---------|----------|
+| no link | 0.95       | 0.98   | 0.97    | 70465.00 |
+| link    | 0.98       | 0.95   | 0.97    | 70465.00 |
+
+##########
+Date: 13/05/2020 23:14:16
+network: cora
+clf: rf
+##########
+
+average classification accuracy: 0.8983
+number of runs: 1
+
+| class   | precission | recall | f-score | support  |
+|---------|------------|--------|---------|----------|
+| no link | 0.84       | 0.98   | 0.91    | 17832.00 |
+| link    | 0.98       | 0.82   | 0.89    | 17832.00 |
+
+##########
+Date: 18/05/2020 08:20:52
+network: scsc
+clf: rf
+##########
+
+average classification accuracy: 0.9667
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.98       | 0.95   | 0.97    | 120.00 |
+| link    | 0.95       | 0.98   | 0.97    | 120.00 |
+
+##########
+Date: 18/05/2020 08:26:44
+network: scsc
+clf: gboost
+##########
+
+average classification accuracy: 0.9292
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.93       | 0.93   | 0.93    | 120.00 |
+| link    | 0.93       | 0.93   | 0.93    | 120.00 |
+
