@@ -25,7 +25,7 @@ def n_runs_check(val):
     return ival
 parser = argparse.ArgumentParser(description='Evaluate link prediction methods on specified network.')
 parser.add_argument('networks', type=str, nargs='+')
-parser.add_argument('--n-runs', type=n_runs_check, default=1, 
+parser.add_argument('--n-runs', type=n_runs_check, default=10, 
         help='Number of runs of the train-test split to perform.')
 parser.add_argument('--clf', type=str, default='rf', 
         choices=['rf', 'svm', 'stacking', 'logreg', 'gboosting', 'majority', 'uniform'], help='Classifier to use for evaluation')
@@ -104,6 +104,9 @@ for network_path in args.networks:
     # Initialize accumulators for classification accuracy, precision, recall, f-score and support.
     acc_aggr = 0
     prfs_aggr = np.zeros((4, 2), dtype=float)
+        
+    # Initialize list for evaluation scores (for Bayesian correlated t-test).
+    scores_list = []
 
     # Perform specified number of train-test splits and average classification metrics.
     for train_edges_pos, test_edges_pos, train_edges_neg, test_edges_neg, test_network in train_test_split.repeated_train_test_split(network, n_rep=N_REP, test_size=0.2):
@@ -121,7 +124,6 @@ for network_path in args.networks:
         # Train classifier and make predictions on test data.
         clf_pipeline.fit(data_train, target_train)
         pred = clf_pipeline.predict(data_test)
-
         
         # If evaluating feature importance and first network.
         if args.eval_features and idx_tts == 1:
@@ -168,6 +170,9 @@ for network_path in args.networks:
         acc_aggr += sklearn.metrics.accuracy_score(target_test, pred)
         prfs_aggr += np.vstack(sklearn.metrics.precision_recall_fscore_support(target_test, pred))
         
+        # Append score to list (for Bayesian correlated t-test).
+        scores_list.append(sklearn.metrics.accuracy_score(target_test, pred))
+        
         # If at last train-test split, plot confusion matrix and ROC curve.
         if idx_tts == N_REP:
             # Plot confusion matrix and ROC curve.
@@ -183,6 +188,9 @@ for network_path in args.networks:
     
     # Process and save results.
     results_processing.process.process_and_save(avg_acc, avg_prfs, N_REP, clf.name, network_path[network_path.rfind('/')+1:])
+
+    # Save list of scores (for Bayesian correlated t-test).
+    np.save('../results/statistical_tests/score_lists/' + network_path[network_path.rfind('/')+1:] + '_' + clf_pipeline.named_steps['clf'].name + '.npy', np.array(scores_list))
         
 ##########################################################################
 

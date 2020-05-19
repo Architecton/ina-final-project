@@ -474,3 +474,87 @@ number of runs: 1
 | no link | 0.97       | 0.95   | 0.96    | 120.00 |
 | link    | 0.95       | 0.97   | 0.96    | 120.00 |
 
+##########
+Date: 19/05/2020 10:55:04
+network: scsc
+clf: gboosting
+##########
+
+average classification accuracy: 0.9621
+number of runs: 10
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.97       | 0.96   | 0.96    | 120.00 |
+| link    | 0.96       | 0.97   | 0.96    | 120.00 |
+
+##########
+Date: 19/05/2020 11:00:15
+network: scsc
+clf: gboosting
+##########
+
+average classification accuracy: 0.9512
+number of runs: 10
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.96       | 0.94   | 0.95    | 120.00 |
+| link    | 0.94       | 0.96   | 0.95    | 120.00 |
+
+##########
+Date: 19/05/2020 11:06:42
+network: scsc
+clf: gboosting
+##########
+
+average classification accuracy: 0.9575
+number of runs: 10
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.96       | 0.95   | 0.96    | 120.00 |
+| link    | 0.95       | 0.96   | 0.96    | 120.00 |
+
+##########
+Date: 19/05/2020 11:34:26
+network: scsc
+clf: uniform
+##########
+
+average classification accuracy: 0.5133
+number of runs: 10
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.51       | 0.52   | 0.51    | 120.00 |
+| link    | 0.51       | 0.51   | 0.51    | 120.00 |
+
+##########
+Date: 19/05/2020 11:36:28
+network: scsc
+clf: uniform
+##########
+
+average classification accuracy: 0.5075
+number of runs: 10
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.51       | 0.51   | 0.51    | 120.00 |
+| link    | 0.51       | 0.51   | 0.51    | 120.00 |
+
+##########
+Date: 19/05/2020 11:36:51
+network: scsc
+clf: uniform
+##########
+
+average classification accuracy: 0.5071
+number of runs: 10
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.51       | 0.49   | 0.50    | 120.00 |
+| link    | 0.51       | 0.52   | 0.51    | 120.00 |
+
