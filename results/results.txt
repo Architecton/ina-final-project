@@ -572,3 +572,73 @@ number of runs: 10
 | no link | 1.00       | 0.99   | 0.99    | 781.00 |
 | link    | 0.99       | 1.00   | 0.99    | 781.00 |
 
+##########
+Date: 20/06/2020 21:42:43
+network: djava
+clf: rf
+##########
+
+average classification accuracy: 0.7654
+number of runs: 10
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.75       | 0.79   | 0.77    | 2216.00 |
+| link    | 0.78       | 0.74   | 0.76    | 2216.00 |
+
+##########
+Date: 20/06/2020 21:45:31
+network: djava
+clf: rf
+##########
+
+average classification accuracy: 0.9277
+number of runs: 10
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.93       | 0.93   | 0.93    | 2216.00 |
+| link    | 0.93       | 0.93   | 0.93    | 2216.00 |
+
+##########
+Date: 20/06/2020 21:50:51
+network: djava
+clf: rf
+##########
+
+average classification accuracy: 0.9299
+number of runs: 10
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.93       | 0.93   | 0.93    | 2216.00 |
+| link    | 0.93       | 0.93   | 0.93    | 2216.00 |
+
+##########
+Date: 20/06/2020 21:53:10
+network: djava
+clf: rf
+##########
+
+average classification accuracy: 0.8560
+number of runs: 10
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.83       | 0.89   | 0.86    | 2216.00 |
+| link    | 0.88       | 0.82   | 0.85    | 2216.00 |
+
+##########
+Date: 20/06/2020 22:19:52
+network: djava
+clf: rf
+##########
+
+average classification accuracy: 0.8349
+number of runs: 10
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.79       | 0.91   | 0.85    | 2216.00 |
+| link    | 0.90       | 0.76   | 0.82    | 2216.00 |
+

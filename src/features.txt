@@ -1,6 +1,6 @@
 # Add the '#' character before feature name to suppress its inclusion.
 
-# common-neighbors
+common-neighbors
 # jaccard-coefficient
 # hub-promoted
 # adamic-adar

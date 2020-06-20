@@ -1,6 +1,7 @@
 import numpy as np
 import networkx as nx
 from scipy.special import comb
+from scipy import spatial
 from collections import Counter
 import community
 import sklearn.preprocessing
@@ -161,7 +162,10 @@ def get_feature_extractor(network, features):
             return abs(page_rank[n1] - page_rank[n2])
 
         elif feature == 'node2vec':
-            return np.hstack((n2v_model.wv[str(n1)], n2v_model.wv[str(n1)]))
+            
+            # Return cosine distance between embeddings (or concatenate embeddings).
+            # return np.hstack((n2v_model.wv[str(n1)], n2v_model.wv[str(n1)]))
+            return spatial.distance.cosine(n2v_model.wv[str(n1)], n2v_model.wv[str(n1)])
 
         elif feature == 'random':
 
