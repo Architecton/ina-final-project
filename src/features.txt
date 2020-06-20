@@ -1,15 +1,20 @@
 # Add the '#' character before feature name to suppress its inclusion.
 
-common-neighbors
-jaccard-coefficient
-hub-promoted
-adamic-adar
-resource-allocation
-sorenson
-hub-depressed
-salton
-leicht-holme-nerman
-preferential-attachment
+# common-neighbors
+# jaccard-coefficient
+# hub-promoted
+# adamic-adar
+# resource-allocation
+# sorenson
+# hub-depressed
+# salton
+# leicht-holme-nerman
+# preferential-attachment
 # simrank
-local-random-walk
+# local-random-walk
+# superposed-random-walk
+# same-community
+# community-index
+# page-rank
+node2vec
 # random

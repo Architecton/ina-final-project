@@ -1,6 +1,23 @@
 import numpy as np
 import networkx as nx
+from scipy.special import comb
+from collections import Counter
+import community
 import sklearn.preprocessing
+
+
+def local_random_walk(network, n1, n2, p_tran):
+    
+    # Compute and return local random walk similarity score.
+    pi_x = np.zeros(p_tran.shape[0], dtype=float)
+    pi_x[n1] = 1.0
+    pi_y = np.zeros(p_tran.shape[0], dtype=float)
+    pi_y[n2] = 1.0
+    for t in range(10):
+        pi_x = p_tran.dot(pi_x)
+        pi_y = p_tran.dot(pi_y)
+
+    return network.degree[n1]/(2*network.number_of_edges()) + pi_x[n2] + network.degree[n2]/(2*network.number_of_edges()) + pi_y[n1]
 
 
 def get_feature_extractor(network, features):
@@ -106,23 +123,45 @@ def get_feature_extractor(network, features):
         
         elif feature == 'local-random-walk':
 
+            # Compute Local random walk score.
+            return local_random_walk(network, n1, n2, p_tran)
+        
+        elif feature == 'superposed-random-walk':
 
-            # Compute and return local random walk similarity score.
-            pi_x = np.zeros(p_tran.shape[0], dtype=float)
-            pi_x[n1] = 1.0
-            pi_y = np.zeros(p_tran.shape[0], dtype=float)
-            pi_y[n2] = 1.0
-            for t in range(10):
-                pi_x = p_tran.dot(pi_x)
-                pi_y = p_tran.dot(pi_y)
-
-            return network.degree[n1]/(2*network.number_of_edges()) + pi_x[n2] + network.degree[n2]/(2*network.number_of_edges()) + pi_y[n1]
-
+            # Compute Local random walk score.
+            return sum([local_random_walk(network, n1, n2, p_tran) for _ in range(5)])
         
         elif feature == 'simrank':
 
             # Return Simrank score.
             return simrank_scores[n1][n2]
+
+        elif feature == 'same-community':
+
+            # Return flag specifying whether the two nodes are part of
+            # the same community or not.
+            return int(communities[n1] == communities[n2])
+
+        elif feature == 'community-index':
+
+            # If nodes not part of same community, return 0.
+            if communities[n1] != communities[n2]:
+                return 0
+            else:
+                
+                # Get community index of both nodes.
+                communitiy_idx = communities[n1]
+
+                # Compute community index.
+                return m_counts[communitiy_idx]/comb(n_counts[communitiy_idx], 2)
+
+        elif feature == 'page-rank':
+
+            # Compare PageRank scores of the nodes.
+            return abs(page_rank[n1] - page_rank[n2])
+
+        elif feature == 'node2vec':
+            return np.hstack((n2v_model.wv[str(n1)], n2v_model.wv[str(n1)]))
 
         elif feature == 'random':
 
@@ -144,16 +183,50 @@ def get_feature_extractor(network, features):
         """
 
         return np.hstack([get_feature(network, n1, n2, feature) for feature in features])
-    
-    
-    ### PRECOMPUTED MEASURES FOR WHOLE NETWORK ###
+   
+    ### PRECOMPUTED DATA FOR WHOLE NETWORK (NEEDED FOR SOME MEASURES) ###
     if 'simrank' in features:
+
+        # Compute simrank scores.
         simrank_scores = nx.algorithms.similarity.simrank_similarity(network)
-    if 'local-random-walk' in features:
+
+    if 'local-random-walk' in features or 'superposed-random-walk' in features:
+
+        # Get adjacency matrix and compute probabilities of transitions.
         adj = nx.to_scipy_sparse_matrix(network)
         p_tran = sklearn.preprocessing.normalize(adj, norm='l1', axis=0)
+    
+    if 'same-community' in features or 'community-index' in features:
 
-    ##############################################
+        # Get communities.
+        communities = community.best_partition(network, randomize=True)
+        
+        # Initialize dictionary mapping community indices to counts of links contained within them.
+        m_counts = dict.fromkeys(set(communities.values()), 0)
+
+        # Count number of nodes in each community.
+        n_counts = Counter(communities.values())
+
+        # Go over links in network.
+        for edge in network.edges():
+
+            # If link within community, add to accumulator for that community.
+            if communities[edge[0]] == communities[edge[1]]:
+                m_counts[communities[edge[0]]] += 1
+
+    if 'page-rank' in features:
+
+        # Compute PageRank of nodes
+        page_rank = nx.pagerank(network)
+
+    if 'node2vec' in features:
+        import node2vec
+        n2v = node2vec.Node2Vec(network, dimensions=64, walk_length=30, num_walks=20, workers=8)
+        n2v_model = n2v.fit(window=10, min_count=1, batch_words=4)
+
+
+
+    #####################################################################
    
     return (lambda network, n1, n2 : feature_extractor(network, n1, n2, features))
  
@@ -192,6 +265,7 @@ def get_features(network, edges, feature_extractor_func):
         if network.has_edge(*edge):
             network.remove_edge(*edge)
             edge_removed = True
+
         feature_vectors.append(feature_extractor_func(network, *edge))
         if edge_removed:
             network.add_edge(*edge)
