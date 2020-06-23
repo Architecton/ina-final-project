@@ -61,8 +61,8 @@ def get_criterion(task):
 args = {
     "task": "link_prediction",
 
-    "dataset": "IAEnronEmployees",
-    "dataset_path": os.getcwd()[:len(os.getcwd()) - 3] + "\\data\\deep_learning\\ia-enron-employees.edges",
+    "dataset": "IAContactsHypertext",
+    "dataset_path": os.getcwd()[:len(os.getcwd()) - 3] + "data\\deep_learning\\djava_transformed",
 
     "mode": "train",
     "generate_neg_examples": True,
