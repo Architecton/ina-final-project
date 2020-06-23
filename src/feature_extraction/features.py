@@ -164,8 +164,8 @@ def get_feature_extractor(network, features):
         elif feature == 'node2vec':
             
             # Return cosine distance between embeddings (or concatenate embeddings).
-            # return np.hstack((n2v_model.wv[str(n1)], n2v_model.wv[str(n1)]))
-            return spatial.distance.cosine(n2v_model.wv[str(n1)], n2v_model.wv[str(n1)])
+            return np.hstack((n2v_model.wv[str(n1)], n2v_model.wv[str(n1)]))
+            # return spatial.distance.cosine(n2v_model.wv[str(n1)], n2v_model.wv[str(n1)])
 
         elif feature == 'random':
 

@@ -25,7 +25,7 @@ def n_runs_check(val):
     return ival
 parser = argparse.ArgumentParser(description='Evaluate link prediction methods on specified network.')
 parser.add_argument('networks', type=str, nargs='+')
-parser.add_argument('--n-runs', type=n_runs_check, default=10, 
+parser.add_argument('--n-runs', type=n_runs_check, default=1, 
         help='Number of runs of the train-test split to perform.')
 parser.add_argument('--clf', type=str, default='rf', 
         choices=['rf', 'svm', 'stacking', 'logreg', 'gboosting', 'majority', 'uniform'], help='Classifier to use for evaluation')
@@ -59,8 +59,7 @@ elif args.clf == 'svm':
     clf = SVC(gamma='auto', probability=True)
     clf.name = 'svm'
 elif args.clf == 'stacking':
-    # TODO TODO TODO add subsets as properties later when features already
-    # extracted.
+    SUBSET_SIZE = 30
     clf = FeatureStackingClf()
     clf.name = 'stacking'
 elif args.clf == 'logreg':
@@ -120,6 +119,11 @@ for network_path in args.networks:
         # Format data (concatenate and shuffle)
         data_train, target_train = formatting.format_data(features_train_pos, features_train_neg, shuffle=True)
         data_test, target_test = formatting.format_data(features_test_pos, features_test_neg, shuffle=True)
+        
+        # If using Stacking method, set feature subset sizes.
+        if clf_pipeline.named_steps['clf'].name == 'stacking':
+            subset_lengths = [SUBSET_SIZE] * (data_train.shape[1]//SUBSET_SIZE) + [data_train.shape[1] % SUBSET_SIZE]
+            clf_pipeline.named_steps['clf'].subset_lengths = subset_lengths
 
         # Train classifier and make predictions on test data.
         clf_pipeline.fit(data_train, target_train)

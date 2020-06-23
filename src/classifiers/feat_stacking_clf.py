@@ -27,11 +27,14 @@ class FeatureStackingClf(BaseEstimator, ClassifierMixin):
         cv_num_folds (int): Number of folds to use when encoding training data using cross-validation.
     """
 
-    def __init__(self, subset_lengths, l0_clf=LogisticRegression, l1_clf=RandomForestClassifier, cv_num_folds=10):
+    def __init__(self, subset_lengths=None, l0_clf=LogisticRegression, l1_clf=RandomForestClassifier, 
+            cv_num_folds=10, l0_params={'max_iter' : 1000}, l1_params={}):
         self.subset_lengths = subset_lengths
         self.l0_clf = l0_clf
         self.l1_clf = l1_clf
         self.cv_num_folds = cv_num_folds
+        self.l0_params = l0_params
+        self.l1_params = l1_params
 
 
     def _create_subsets(self, X, subset_lengths):
@@ -72,8 +75,14 @@ class FeatureStackingClf(BaseEstimator, ClassifierMixin):
         # Get number of unique classes.
         num_classes = len(np.unique(y))
         
-        # Create training data subsets.
-        data_subsets_train = self._create_subsets(X, self.subset_lengths)
+        
+        # Check if subset sizes set. Else raise error.
+        if self.subset_lengths is not None:
+        
+            # Create training data subsets.
+            data_subsets_train = self._create_subsets(X, self.subset_lengths)
+        else:
+            raise ValueError('Subset sizes must be set before training')
 
         # Initialize list for storing subset predictions.
         pred_subs_all = []
@@ -82,12 +91,12 @@ class FeatureStackingClf(BaseEstimator, ClassifierMixin):
         for subset in data_subsets_train:
             pred_subs = np.empty((0, num_classes), dtype=int)
             for train_index, test_index in KFold(self.cv_num_folds).split(subset, y):
-                pred_nxt = self.l0_clf().fit(subset[train_index, :], y[train_index]).predict_proba(subset[test_index])
+                pred_nxt = self.l0_clf(**self.l0_params).fit(subset[train_index, :], y[train_index]).predict_proba(subset[test_index])
                 pred_subs = np.vstack((pred_subs, pred_nxt))
             pred_subs_all.append(pred_subs)
 
         # Learn l1 classifier on predictions.
-        self.trained_l1 = self.l1_clf().fit(np.hstack(pred_subs_all), y)
+        self.trained_l1 = self.l1_clf(**self.l1_params).fit(np.hstack(pred_subs_all), y)
 
         # Learn l0 classifiers for feature encoding.
         self.encoding_l0 = [self.l0_clf().fit(subset, y) for subset in data_subsets_train]
