@@ -45,7 +45,7 @@ def get_dataset(args):
 
 # Returns aggregator class
 def get_agg_class(agg_class):
-    return getattr(sys.modules[__name__], agg_class)
+    return getattr(sys.modules[models.__name__], agg_class)
 
 
 # Returns task name
@@ -61,10 +61,9 @@ def get_criterion(task):
 args = {
     "task": "link_prediction",
 
-    # change!
     "dataset": "IAEnronEmployees",
-    "dataset_path": "/Users/raunak/Documents/Datasets/temporal-networks-network-repository/"
-                    "ia-enron-employees/ia-enron-employees.edges",
+    "dataset_path": os.getcwd()[:len(os.getcwd()) - 3] + "\\data\\deep_learning\\ia-enron-employees.edges",
+
     "mode": "train",
     "generate_neg_examples": True,
 
@@ -91,7 +90,7 @@ args = {
     "visdom": True,
 
     "load": False,
-    "save": False
+    "save": True
 }
 config = args
 config['num_layers'] = len(config['hidden_dims']) + 1
@@ -102,7 +101,7 @@ else:
     device = 'cpu'
 config['device'] = device
 
-# Load database TODO: change to your own network
+# Load database
 dataset_args = (config['task'], config['dataset'], config['dataset_path'],
                 config['generate_neg_examples'], 'train',
                 config['duplicate_examples'], config['repeat_examples'],
