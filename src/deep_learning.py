@@ -99,7 +99,10 @@ if config['cuda'] and torch.cuda.is_available():
     device = 'cuda:0'
 else:
     device = 'cpu'
+if config["model"] == "GAT":
+    device = "cpu"
 config['device'] = device
+
 
 # Load database
 dataset_args = (config['task'], config['dataset'], config['dataset_path'],
