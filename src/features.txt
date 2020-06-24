@@ -11,10 +11,10 @@ salton
 leicht-holme-nerman
 preferential-attachment
 # simrank
-local-random-walk
-superposed-random-walk
+# local-random-walk
+# superposed-random-walk
 # same-community
 # community-index
 # page-rank
-# node2vec
+node2vec
 # random

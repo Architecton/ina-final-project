@@ -13,8 +13,10 @@ from sklearn.dummy import DummyClassifier
 from classifiers.feat_stacking_clf import FeatureStackingClf
 from classifiers.gboostclf import GradientBoostingClassifier
 from sklearn.pipeline import Pipeline
+import time
 import warnings
 import argparse
+from termcolor import colored
 
 
 ### PARSING ARGUMENTS ####################################################
@@ -85,9 +87,12 @@ clf_pipeline.steps.append(['clf', clf])
 ### EVALUATION ###########################################################
 
 # Go over specified networks and evaluate prediction method on each one.
-for network_path in args.networks:
+for idx, network_path in enumerate(args.networks):
 
-    print("evaluating {0}".format(network_path[network_path.rfind('/')+1:]))
+    print("evaluating {0} ({1}/{2})".format(network_path[network_path.rfind('/')+1:], idx+1, len(args.networks)))
+
+    # Start timing evaluation.
+    start_time = time.time()
 
     # Parse network and relabel nodes.
     network_raw = nx.read_edgelist(network_path, create_using=nx.Graph)
@@ -195,6 +200,13 @@ for network_path in args.networks:
 
     # Save list of scores (for Bayesian correlated t-test).
     np.save('../results/statistical_tests/score_lists/' + network_path[network_path.rfind('/')+1:] + '_' + clf_pipeline.named_steps['clf'].name + '.npy', np.array(scores_list))
+    
+    # Compute evaluation running time.
+    evaluation_runtime = time.time() - start_time
+
+    # Print time needed for evaluation.
+    print(colored('Evaluation took {0:.3f} seconds'.format(evaluation_runtime), 'red' if evaluation_runtime > 120.0 else 'green'))
+
         
 ##########################################################################
 

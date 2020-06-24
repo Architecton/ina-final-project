@@ -726,3 +726,1627 @@ number of runs: 1
 | no link | 0.95       | 0.94   | 0.94    | 2216.00 |
 | link    | 0.94       | 0.95   | 0.94    | 2216.00 |
 
+##########
+Date: 24/06/2020 08:23:06
+network: djava
+clf: rf
+##########
+
+average classification accuracy: 0.9287
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.93       | 0.93   | 0.93    | 2216.00 |
+| link    | 0.93       | 0.93   | 0.93    | 2216.00 |
+
+##########
+Date: 24/06/2020 08:23:39
+network: djavax
+clf: rf
+##########
+
+average classification accuracy: 0.9316
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.90       | 0.97   | 0.93    | 1587.00 |
+| link    | 0.97       | 0.89   | 0.93    | 1587.00 |
+
+##########
+Date: 24/06/2020 08:24:15
+network: amazon
+clf: rf
+##########
+
+average classification accuracy: 0.9962
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 1.00       | 0.99   | 1.00    | 781.00 |
+| link    | 0.99       | 1.00   | 1.00    | 781.00 |
+
+##########
+Date: 24/06/2020 08:24:57
+network: iui
+clf: rf
+##########
+
+average classification accuracy: 0.9904
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.98       | 1.00   | 0.99    | 676.00 |
+| link    | 1.00       | 0.98   | 0.99    | 676.00 |
+
+##########
+Date: 24/06/2020 08:25:56
+network: arXiv-acl
+clf: rf
+##########
+
+average classification accuracy: 0.9660
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.94       | 1.00   | 0.97    | 4928.00 |
+| link    | 1.00       | 0.94   | 0.96    | 4928.00 |
+
+##########
+Date: 24/06/2020 08:34:22
+network: facebook
+clf: rf
+##########
+
+average classification accuracy: 0.9787
+number of runs: 1
+
+| class   | precission | recall | f-score | support  |
+|---------|------------|--------|---------|----------|
+| no link | 0.98       | 0.97   | 0.98    | 17647.00 |
+| link    | 0.97       | 0.98   | 0.98    | 17647.00 |
+
+##########
+Date: 24/06/2020 08:39:02
+network: atc
+clf: rf
+##########
+
+average classification accuracy: 0.7189
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.68       | 0.83   | 0.75    | 482.00 |
+| link    | 0.78       | 0.60   | 0.68    | 482.00 |
+
+##########
+Date: 24/06/2020 08:56:51
+network: dblp
+clf: rf
+##########
+
+average classification accuracy: 0.8810
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.84       | 0.94   | 0.89    | 9927.00 |
+| link    | 0.93       | 0.82   | 0.87    | 9927.00 |
+
+##########
+Date: 24/06/2020 08:59:10
+network: arenas_email
+clf: rf
+##########
+
+average classification accuracy: 0.8662
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.83       | 0.92   | 0.87    | 1091.00 |
+| link    | 0.91       | 0.81   | 0.86    | 1091.00 |
+
+##########
+Date: 24/06/2020 09:04:16
+network: as20000102
+clf: rf
+##########
+
+average classification accuracy: 0.9162
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.90       | 0.94   | 0.92    | 2779.00 |
+| link    | 0.94       | 0.89   | 0.91    | 2779.00 |
+
+##########
+Date: 24/06/2020 09:12:18
+network: health
+clf: rf
+##########
+
+average classification accuracy: 0.8018
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.73       | 0.97   | 0.83    | 2091.00 |
+| link    | 0.96       | 0.63   | 0.76    | 2091.00 |
+
+##########
+Date: 24/06/2020 09:14:01
+network: innovation
+clf: rf
+##########
+
+average classification accuracy: 0.8378
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.82       | 0.87   | 0.84    | 185.00 |
+| link    | 0.86       | 0.81   | 0.83    | 185.00 |
+
+##########
+Date: 24/06/2020 09:15:43
+network: oz
+clf: rf
+##########
+
+average classification accuracy: 0.8030
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.81       | 0.80   | 0.80    | 368.00 |
+| link    | 0.80       | 0.81   | 0.80    | 368.00 |
+
+##########
+Date: 24/06/2020 10:37:26
+network: amazon
+clf: rf
+##########
+
+average classification accuracy: 0.9962
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.99       | 1.00   | 1.00    | 781.00 |
+| link    | 1.00       | 0.99   | 1.00    | 781.00 |
+
+##########
+Date: 24/06/2020 10:37:53
+network: amazon
+clf: rf
+##########
+
+average classification accuracy: 0.9955
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 1.00       | 0.99   | 1.00    | 781.00 |
+| link    | 0.99       | 1.00   | 1.00    | 781.00 |
+
+##########
+Date: 24/06/2020 10:37:55
+network: arenas_email
+clf: rf
+##########
+
+average classification accuracy: 0.8492
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.82       | 0.90   | 0.86    | 1091.00 |
+| link    | 0.89       | 0.80   | 0.84    | 1091.00 |
+
+##########
+Date: 24/06/2020 10:38:22
+network: arxiv_acl
+clf: rf
+##########
+
+average classification accuracy: 0.9699
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.95       | 1.00   | 0.97    | 4928.00 |
+| link    | 1.00       | 0.94   | 0.97    | 4928.00 |
+
+##########
+Date: 24/06/2020 10:38:36
+network: as20000102
+clf: rf
+##########
+
+average classification accuracy: 0.9095
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.89       | 0.94   | 0.91    | 2779.00 |
+| link    | 0.93       | 0.88   | 0.91    | 2779.00 |
+
+##########
+Date: 24/06/2020 10:38:38
+network: atc
+clf: rf
+##########
+
+average classification accuracy: 0.7147
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.67       | 0.85   | 0.75    | 482.00 |
+| link    | 0.79       | 0.58   | 0.67    | 482.00 |
+
+##########
+Date: 24/06/2020 10:38:44
+network: bible
+clf: rf
+##########
+
+average classification accuracy: 0.9756
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.98       | 0.97   | 0.98    | 1827.00 |
+| link    | 0.97       | 0.98   | 0.98    | 1827.00 |
+
+##########
+Date: 24/06/2020 10:38:45
+network: chicago_regional
+clf: rf
+##########
+
+average classification accuracy: 0.9981
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 1.00       | 1.00   | 1.00    | 260.00 |
+| link    | 1.00       | 1.00   | 1.00    | 260.00 |
+
+##########
+Date: 24/06/2020 10:39:54
+network: dblp
+clf: rf
+##########
+
+average classification accuracy: 0.8829
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.85       | 0.94   | 0.89    | 9927.00 |
+| link    | 0.93       | 0.83   | 0.88    | 9927.00 |
+
+##########
+Date: 24/06/2020 10:39:54
+network: dgae
+clf: rf
+##########
+
+average classification accuracy: 0.9082
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.92       | 0.90   | 0.91    | 49.00 |
+| link    | 0.90       | 0.92   | 0.91    | 49.00 |
+
+##########
+Date: 24/06/2020 10:40:05
+network: djava
+clf: rf
+##########
+
+average classification accuracy: 0.9264
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.92       | 0.94   | 0.93    | 2216.00 |
+| link    | 0.94       | 0.91   | 0.93    | 2216.00 |
+
+##########
+Date: 24/06/2020 10:40:09
+network: djavax
+clf: rf
+##########
+
+average classification accuracy: 0.9389
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.91       | 0.97   | 0.94    | 1587.00 |
+| link    | 0.97       | 0.91   | 0.94    | 1587.00 |
+
+##########
+Date: 24/06/2020 10:40:11
+network: ego_facebook
+clf: rf
+##########
+
+average classification accuracy: 0.9966
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 1.00       | 1.00   | 1.00    | 597.00 |
+| link    | 1.00       | 1.00   | 1.00    | 597.00 |
+
+##########
+Date: 24/06/2020 10:40:12
+network: euroroad
+clf: rf
+##########
+
+average classification accuracy: 0.7007
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.65       | 0.88   | 0.75    | 284.00 |
+| link    | 0.82       | 0.52   | 0.63    | 284.00 |
+
+##########
+Date: 24/06/2020 10:40:14
+network: foodweb_baydry
+clf: rf
+##########
+
+average classification accuracy: 0.7725
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.77       | 0.77   | 0.77    | 422.00 |
+| link    | 0.77       | 0.77   | 0.77    | 422.00 |
+
+##########
+Date: 24/06/2020 10:40:16
+network: foodweb_baywet
+clf: rf
+##########
+
+average classification accuracy: 0.7759
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.77       | 0.79   | 0.78    | 415.00 |
+| link    | 0.78       | 0.77   | 0.77    | 415.00 |
+
+##########
+Date: 24/06/2020 10:40:21
+network: health
+clf: rf
+##########
+
+average classification accuracy: 0.7912
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.71       | 0.97   | 0.82    | 2091.00 |
+| link    | 0.96       | 0.61   | 0.74    | 2091.00 |
+
+##########
+Date: 24/06/2020 10:40:22
+network: innovation
+clf: rf
+##########
+
+average classification accuracy: 0.8405
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.84       | 0.85   | 0.84    | 185.00 |
+| link    | 0.85       | 0.83   | 0.84    | 185.00 |
+
+##########
+Date: 24/06/2020 10:40:24
+network: iui
+clf: rf
+##########
+
+average classification accuracy: 0.9889
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.98       | 1.00   | 0.99    | 676.00 |
+| link    | 1.00       | 0.98   | 0.99    | 676.00 |
+
+##########
+Date: 24/06/2020 10:40:27
+network: maayan_figeys
+clf: rf
+##########
+
+average classification accuracy: 0.9025
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.90       | 0.91   | 0.90    | 1287.00 |
+| link    | 0.91       | 0.89   | 0.90    | 1287.00 |
+
+##########
+Date: 24/06/2020 10:40:29
+network: maayan_foodweb
+clf: rf
+##########
+
+average classification accuracy: 0.9470
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.95       | 0.95   | 0.95    | 491.00 |
+| link    | 0.95       | 0.95   | 0.95    | 491.00 |
+
+##########
+Date: 24/06/2020 10:40:29
+network: maayan_pdzbase
+clf: rf
+##########
+
+average classification accuracy: 0.8163
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.76       | 0.92   | 0.83    | 49.00 |
+| link    | 0.90       | 0.71   | 0.80    | 49.00 |
+
+##########
+Date: 24/06/2020 10:40:31
+network: maayan_stelzl
+clf: rf
+##########
+
+average classification accuracy: 0.8646
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.84       | 0.90   | 0.87    | 639.00 |
+| link    | 0.89       | 0.83   | 0.86    | 639.00 |
+
+##########
+Date: 24/06/2020 10:40:35
+network: maayan_vidal
+clf: rf
+##########
+
+average classification accuracy: 0.8418
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.80       | 0.91   | 0.85    | 1346.00 |
+| link    | 0.90       | 0.77   | 0.83    | 1346.00 |
+
+##########
+Date: 24/06/2020 10:40:52
+network: moreno_blogs
+clf: rf
+##########
+
+average classification accuracy: 0.8861
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.89       | 0.88   | 0.88    | 3344.00 |
+| link    | 0.88       | 0.90   | 0.89    | 3344.00 |
+
+##########
+Date: 24/06/2020 10:40:53
+network: moreno_crime
+clf: rf
+##########
+
+average classification accuracy: 0.7203
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.71       | 0.74   | 0.73    | 295.00 |
+| link    | 0.73       | 0.70   | 0.72    | 295.00 |
+
+##########
+Date: 24/06/2020 10:41:11
+network: openflights
+clf: rf
+##########
+
+average classification accuracy: 0.9639
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.96       | 0.97   | 0.96    | 3852.00 |
+| link    | 0.97       | 0.96   | 0.96    | 3852.00 |
+
+##########
+Date: 24/06/2020 10:41:25
+network: opsahl_openflights
+clf: rf
+##########
+
+average classification accuracy: 0.9633
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.96       | 0.97   | 0.96    | 3136.00 |
+| link    | 0.97       | 0.96   | 0.96    | 3136.00 |
+
+##########
+Date: 24/06/2020 10:41:30
+network: opsahl_powergrid
+clf: rf
+##########
+
+average classification accuracy: 0.6952
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.64       | 0.90   | 0.75    | 1319.00 |
+| link    | 0.83       | 0.49   | 0.62    | 1319.00 |
+
+##########
+Date: 24/06/2020 10:41:34
+network: opsahl_ucforum
+clf: rf
+##########
+
+average classification accuracy: 0.7630
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.77       | 0.76   | 0.76    | 1407.00 |
+| link    | 0.76       | 0.77   | 0.76    | 1407.00 |
+
+##########
+Date: 24/06/2020 10:41:57
+network: amazon
+clf: rf
+##########
+
+average classification accuracy: 0.9968
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 1.00       | 1.00   | 1.00    | 781.00 |
+| link    | 1.00       | 1.00   | 1.00    | 781.00 |
+
+##########
+Date: 24/06/2020 10:42:00
+network: arenas_email
+clf: rf
+##########
+
+average classification accuracy: 0.8501
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.82       | 0.91   | 0.86    | 1091.00 |
+| link    | 0.89       | 0.79   | 0.84    | 1091.00 |
+
+##########
+Date: 24/06/2020 10:42:27
+network: arxiv_acl
+clf: rf
+##########
+
+average classification accuracy: 0.9651
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.94       | 0.99   | 0.97    | 4928.00 |
+| link    | 0.99       | 0.94   | 0.96    | 4928.00 |
+
+##########
+Date: 24/06/2020 10:43:47
+network: amazon
+clf: rf
+##########
+
+average classification accuracy: 0.9955
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 1.00       | 0.99   | 1.00    | 781.00 |
+| link    | 0.99       | 1.00   | 1.00    | 781.00 |
+
+##########
+Date: 24/06/2020 10:45:17
+network: amazon
+clf: rf
+##########
+
+average classification accuracy: 0.9987
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 1.00       | 1.00   | 1.00    | 781.00 |
+| link    | 1.00       | 1.00   | 1.00    | 781.00 |
+
+##########
+Date: 24/06/2020 10:45:19
+network: arenas_email
+clf: rf
+##########
+
+average classification accuracy: 0.8547
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.82       | 0.91   | 0.86    | 1091.00 |
+| link    | 0.90       | 0.79   | 0.85    | 1091.00 |
+
+##########
+Date: 24/06/2020 10:45:43
+network: arxiv_acl
+clf: rf
+##########
+
+average classification accuracy: 0.9682
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.94       | 1.00   | 0.97    | 4928.00 |
+| link    | 1.00       | 0.94   | 0.97    | 4928.00 |
+
+##########
+Date: 24/06/2020 10:45:56
+network: as20000102
+clf: rf
+##########
+
+average classification accuracy: 0.9133
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.89       | 0.94   | 0.92    | 2779.00 |
+| link    | 0.94       | 0.88   | 0.91    | 2779.00 |
+
+##########
+Date: 24/06/2020 10:45:57
+network: atc
+clf: rf
+##########
+
+average classification accuracy: 0.7230
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.68       | 0.85   | 0.75    | 482.00 |
+| link    | 0.80       | 0.60   | 0.68    | 482.00 |
+
+##########
+Date: 24/06/2020 10:46:02
+network: bible
+clf: rf
+##########
+
+average classification accuracy: 0.9803
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.99       | 0.97   | 0.98    | 1827.00 |
+| link    | 0.98       | 0.99   | 0.98    | 1827.00 |
+
+##########
+Date: 24/06/2020 10:46:03
+network: chicago_regional
+clf: rf
+##########
+
+average classification accuracy: 0.9962
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 1.00       | 1.00   | 1.00    | 260.00 |
+| link    | 1.00       | 1.00   | 1.00    | 260.00 |
+
+##########
+Date: 24/06/2020 10:47:08
+network: dblp
+clf: rf
+##########
+
+average classification accuracy: 0.8790
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.84       | 0.93   | 0.88    | 9927.00 |
+| link    | 0.92       | 0.83   | 0.87    | 9927.00 |
+
+##########
+Date: 24/06/2020 10:47:08
+network: dgae
+clf: rf
+##########
+
+average classification accuracy: 0.8776
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.82       | 0.96   | 0.89    | 49.00 |
+| link    | 0.95       | 0.80   | 0.87    | 49.00 |
+
+##########
+Date: 24/06/2020 10:47:19
+network: djava
+clf: rf
+##########
+
+average classification accuracy: 0.9298
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.93       | 0.93   | 0.93    | 2216.00 |
+| link    | 0.93       | 0.93   | 0.93    | 2216.00 |
+
+##########
+Date: 24/06/2020 10:47:23
+network: djavax
+clf: rf
+##########
+
+average classification accuracy: 0.9288
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.90       | 0.96   | 0.93    | 1587.00 |
+| link    | 0.96       | 0.90   | 0.93    | 1587.00 |
+
+##########
+Date: 24/06/2020 10:47:25
+network: ego_facebook
+clf: rf
+##########
+
+average classification accuracy: 0.9983
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 1.00       | 1.00   | 1.00    | 597.00 |
+| link    | 1.00       | 1.00   | 1.00    | 597.00 |
+
+##########
+Date: 24/06/2020 10:47:26
+network: euroroad
+clf: rf
+##########
+
+average classification accuracy: 0.7377
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.74       | 0.74   | 0.74    | 284.00 |
+| link    | 0.74       | 0.73   | 0.74    | 284.00 |
+
+##########
+Date: 24/06/2020 10:47:28
+network: foodweb_baydry
+clf: rf
+##########
+
+average classification accuracy: 0.7666
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.76       | 0.77   | 0.77    | 422.00 |
+| link    | 0.77       | 0.76   | 0.77    | 422.00 |
+
+##########
+Date: 24/06/2020 10:47:30
+network: foodweb_baywet
+clf: rf
+##########
+
+average classification accuracy: 0.7675
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.77       | 0.75   | 0.76    | 415.00 |
+| link    | 0.76       | 0.78   | 0.77    | 415.00 |
+
+##########
+Date: 24/06/2020 10:47:35
+network: health
+clf: rf
+##########
+
+average classification accuracy: 0.7898
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.71       | 0.98   | 0.82    | 2091.00 |
+| link    | 0.96       | 0.60   | 0.74    | 2091.00 |
+
+##########
+Date: 24/06/2020 10:47:36
+network: innovation
+clf: rf
+##########
+
+average classification accuracy: 0.8108
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.79       | 0.85   | 0.82    | 185.00 |
+| link    | 0.84       | 0.77   | 0.80    | 185.00 |
+
+##########
+Date: 24/06/2020 10:47:38
+network: iui
+clf: rf
+##########
+
+average classification accuracy: 0.9874
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.98       | 0.99   | 0.99    | 676.00 |
+| link    | 0.99       | 0.98   | 0.99    | 676.00 |
+
+##########
+Date: 24/06/2020 10:47:41
+network: maayan_figeys
+clf: rf
+##########
+
+average classification accuracy: 0.9099
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.90       | 0.92   | 0.91    | 1287.00 |
+| link    | 0.92       | 0.90   | 0.91    | 1287.00 |
+
+##########
+Date: 24/06/2020 10:47:43
+network: maayan_foodweb
+clf: rf
+##########
+
+average classification accuracy: 0.9481
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.95       | 0.95   | 0.95    | 491.00 |
+| link    | 0.95       | 0.95   | 0.95    | 491.00 |
+
+##########
+Date: 24/06/2020 10:47:43
+network: maayan_pdzbase
+clf: rf
+##########
+
+average classification accuracy: 0.8061
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.78       | 0.86   | 0.82    | 49.00 |
+| link    | 0.84       | 0.76   | 0.80    | 49.00 |
+
+##########
+Date: 24/06/2020 10:47:45
+network: maayan_stelzl
+clf: rf
+##########
+
+average classification accuracy: 0.8498
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.82       | 0.89   | 0.86    | 639.00 |
+| link    | 0.88       | 0.81   | 0.84    | 639.00 |
+
+##########
+Date: 24/06/2020 10:47:49
+network: maayan_vidal
+clf: rf
+##########
+
+average classification accuracy: 0.8466
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.81       | 0.90   | 0.85    | 1346.00 |
+| link    | 0.89       | 0.79   | 0.84    | 1346.00 |
+
+##########
+Date: 24/06/2020 10:48:06
+network: moreno_blogs
+clf: rf
+##########
+
+average classification accuracy: 0.8828
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.89       | 0.88   | 0.88    | 3344.00 |
+| link    | 0.88       | 0.89   | 0.88    | 3344.00 |
+
+##########
+Date: 24/06/2020 10:48:07
+network: moreno_crime
+clf: rf
+##########
+
+average classification accuracy: 0.6780
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.68       | 0.68   | 0.68    | 295.00 |
+| link    | 0.68       | 0.68   | 0.68    | 295.00 |
+
+##########
+Date: 24/06/2020 10:48:25
+network: openflights
+clf: rf
+##########
+
+average classification accuracy: 0.9646
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.96       | 0.97   | 0.96    | 3852.00 |
+| link    | 0.97       | 0.96   | 0.96    | 3852.00 |
+
+##########
+Date: 24/06/2020 10:48:39
+network: opsahl_openflights
+clf: rf
+##########
+
+average classification accuracy: 0.9648
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.96       | 0.97   | 0.97    | 3136.00 |
+| link    | 0.97       | 0.96   | 0.96    | 3136.00 |
+
+##########
+Date: 24/06/2020 10:48:43
+network: opsahl_powergrid
+clf: rf
+##########
+
+average classification accuracy: 0.7058
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.64       | 0.92   | 0.76    | 1319.00 |
+| link    | 0.86       | 0.49   | 0.63    | 1319.00 |
+
+##########
+Date: 24/06/2020 10:48:47
+network: opsahl_ucforum
+clf: rf
+##########
+
+average classification accuracy: 0.7612
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.76       | 0.77   | 0.76    | 1407.00 |
+| link    | 0.76       | 0.76   | 0.76    | 1407.00 |
+
+##########
+Date: 24/06/2020 10:49:15
+network: opsahl_usairport
+clf: rf
+##########
+
+average classification accuracy: 0.9502
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.95       | 0.95   | 0.95    | 3443.00 |
+| link    | 0.95       | 0.95   | 0.95    | 3443.00 |
+
+##########
+Date: 24/06/2020 10:49:16
+network: oz
+clf: rf
+##########
+
+average classification accuracy: 0.8030
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.81       | 0.79   | 0.80    | 368.00 |
+| link    | 0.79       | 0.82   | 0.81    | 368.00 |
+
+##########
+Date: 24/06/2020 10:49:24
+network: petster_friendships
+clf: rf
+##########
+
+average classification accuracy: 0.8434
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.84       | 0.85   | 0.84    | 2507.00 |
+| link    | 0.85       | 0.83   | 0.84    | 2507.00 |
+
+##########
+Date: 24/06/2020 10:49:35
+network: petster_hamster
+clf: rf
+##########
+
+average classification accuracy: 0.9581
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.96       | 0.96   | 0.96    | 3327.00 |
+| link    | 0.96       | 0.96   | 0.96    | 3327.00 |
+
+##########
+Date: 24/06/2020 10:49:37
+network: protein
+clf: rf
+##########
+
+average classification accuracy: 0.8739
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.84       | 0.93   | 0.88    | 456.00 |
+| link    | 0.92       | 0.82   | 0.87    | 456.00 |
+
+##########
+Date: 24/06/2020 10:49:37
+network: scsc
+clf: rf
+##########
+
+average classification accuracy: 0.9375
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.94       | 0.93   | 0.94    | 120.00 |
+| link    | 0.93       | 0.94   | 0.94    | 120.00 |
+
+##########
+Date: 24/06/2020 10:49:39
+network: slavko
+clf: rf
+##########
+
+average classification accuracy: 0.8964
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.91       | 0.89   | 0.90    | 444.00 |
+| link    | 0.89       | 0.91   | 0.90    | 444.00 |
+
+##########
+Date: 24/06/2020 10:52:15
+network: amazon
+clf: rf
+##########
+
+average classification accuracy: 0.9968
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 1.00       | 1.00   | 1.00    | 781.00 |
+| link    | 1.00       | 1.00   | 1.00    | 781.00 |
+
+##########
+Date: 24/06/2020 10:52:49
+network: arenas_email
+clf: rf
+##########
+
+average classification accuracy: 0.8437
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.86       | 0.82   | 0.84    | 1091.00 |
+| link    | 0.83       | 0.87   | 0.85    | 1091.00 |
+
+##########
+Date: 24/06/2020 10:56:19
+network: as20000102
+clf: rf
+##########
+
+average classification accuracy: 0.9315
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.93       | 0.94   | 0.93    | 2779.00 |
+| link    | 0.94       | 0.93   | 0.93    | 2779.00 |
+
+##########
+Date: 24/06/2020 10:56:48
+network: atc
+clf: rf
+##########
+
+average classification accuracy: 0.7842
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.78       | 0.79   | 0.79    | 482.00 |
+| link    | 0.79       | 0.77   | 0.78    | 482.00 |
+
+##########
+Date: 24/06/2020 10:57:38
+network: bible
+clf: rf
+##########
+
+average classification accuracy: 0.9726
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.99       | 0.96   | 0.97    | 1827.00 |
+| link    | 0.96       | 0.99   | 0.97    | 1827.00 |
+
+##########
+Date: 24/06/2020 10:58:08
+network: chicago_regional
+clf: rf
+##########
+
+average classification accuracy: 0.9308
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.93       | 0.93   | 0.93    | 260.00 |
+| link    | 0.93       | 0.93   | 0.93    | 260.00 |
+
+##########
+Date: 24/06/2020 10:58:11
+network: dgae
+clf: rf
+##########
+
+average classification accuracy: 0.8878
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.91       | 0.86   | 0.88    | 49.00 |
+| link    | 0.87       | 0.92   | 0.89    | 49.00 |
+
+##########
+Date: 24/06/2020 10:59:18
+network: djava
+clf: rf
+##########
+
+average classification accuracy: 0.9380
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.94       | 0.94   | 0.94    | 2216.00 |
+| link    | 0.94       | 0.94   | 0.94    | 2216.00 |
+
+##########
+Date: 24/06/2020 11:00:32
+network: djavax
+clf: rf
+##########
+
+average classification accuracy: 0.9102
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.91       | 0.91   | 0.91    | 1587.00 |
+| link    | 0.91       | 0.91   | 0.91    | 1587.00 |
+
+##########
+Date: 24/06/2020 11:01:48
+network: ego_facebook
+clf: rf
+##########
+
+average classification accuracy: 0.9966
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 1.00       | 0.99   | 1.00    | 597.00 |
+| link    | 0.99       | 1.00   | 1.00    | 597.00 |
+
+##########
+Date: 24/06/2020 11:02:13
+network: euroroad
+clf: rf
+##########
+
+average classification accuracy: 0.7606
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.77       | 0.75   | 0.76    | 284.00 |
+| link    | 0.76       | 0.77   | 0.76    | 284.00 |
+
+##########
+Date: 24/06/2020 11:02:19
+network: foodweb_baydry
+clf: rf
+##########
+
+average classification accuracy: 0.8057
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.81       | 0.80   | 0.80    | 422.00 |
+| link    | 0.80       | 0.82   | 0.81    | 422.00 |
+
+##########
+Date: 24/06/2020 11:02:25
+network: foodweb_baywet
+clf: rf
+##########
+
+average classification accuracy: 0.7928
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.80       | 0.78   | 0.79    | 415.00 |
+| link    | 0.79       | 0.80   | 0.79    | 415.00 |
+
+##########
+Date: 24/06/2020 11:03:38
+network: health
+clf: rf
+##########
+
+average classification accuracy: 0.7922
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.79       | 0.79   | 0.79    | 2091.00 |
+| link    | 0.79       | 0.79   | 0.79    | 2091.00 |
+
+##########
+Date: 24/06/2020 11:03:46
+network: innovation
+clf: rf
+##########
+
+average classification accuracy: 0.8378
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.85       | 0.82   | 0.84    | 185.00 |
+| link    | 0.83       | 0.85   | 0.84    | 185.00 |
+
+##########
+Date: 24/06/2020 11:04:35
+network: iui
+clf: rf
+##########
+
+average classification accuracy: 0.9859
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.99       | 0.98   | 0.99    | 676.00 |
+| link    | 0.98       | 0.99   | 0.99    | 676.00 |
+
+##########
+Date: 24/06/2020 11:05:37
+network: maayan_figeys
+clf: rf
+##########
+
+average classification accuracy: 0.9231
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.93       | 0.92   | 0.92    | 1287.00 |
+| link    | 0.92       | 0.93   | 0.92    | 1287.00 |
+
+##########
+Date: 24/06/2020 11:05:45
+network: maayan_foodweb
+clf: rf
+##########
+
+average classification accuracy: 0.9226
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.93       | 0.91   | 0.92    | 491.00 |
+| link    | 0.92       | 0.93   | 0.92    | 491.00 |
+
+##########
+Date: 24/06/2020 11:05:50
+network: maayan_pdzbase
+clf: rf
+##########
+
+average classification accuracy: 0.7959
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.81       | 0.78   | 0.79    | 49.00 |
+| link    | 0.78       | 0.82   | 0.80    | 49.00 |
+
+##########
+Date: 24/06/2020 11:06:29
+network: maayan_stelzl
+clf: rf
+##########
+
+average classification accuracy: 0.8404
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.83       | 0.85   | 0.84    | 639.00 |
+| link    | 0.85       | 0.83   | 0.84    | 639.00 |
+
+##########
+Date: 24/06/2020 11:07:48
+network: maayan_vidal
+clf: rf
+##########
+
+average classification accuracy: 0.8481
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.84       | 0.86   | 0.85    | 1346.00 |
+| link    | 0.86       | 0.84   | 0.85    | 1346.00 |
+
+##########
+Date: 24/06/2020 11:09:00
+network: moreno_blogs
+clf: rf
+##########
+
+average classification accuracy: 0.9049
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.91       | 0.90   | 0.90    | 3344.00 |
+| link    | 0.90       | 0.91   | 0.91    | 3344.00 |
+
+##########
+Date: 24/06/2020 11:09:20
+network: moreno_crime
+clf: rf
+##########
+
+average classification accuracy: 0.6729
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.67       | 0.68   | 0.68    | 295.00 |
+| link    | 0.68       | 0.66   | 0.67    | 295.00 |
+
+##########
+Date: 24/06/2020 11:11:40
+network: openflights
+clf: rf
+##########
+
+average classification accuracy: 0.9656
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.97       | 0.96   | 0.97    | 3852.00 |
+| link    | 0.96       | 0.97   | 0.97    | 3852.00 |
+
+##########
+Date: 24/06/2020 11:13:30
+network: opsahl_openflights
+clf: rf
+##########
+
+average classification accuracy: 0.9668
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.97       | 0.96   | 0.97    | 3136.00 |
+| link    | 0.96       | 0.97   | 0.97    | 3136.00 |
+
+##########
+Date: 24/06/2020 11:15:24
+network: opsahl_powergrid
+clf: rf
+##########
+
+average classification accuracy: 0.7544
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.75       | 0.76   | 0.75    | 1319.00 |
+| link    | 0.76       | 0.75   | 0.75    | 1319.00 |
+
+##########
+Date: 24/06/2020 11:15:56
+network: opsahl_ucforum
+clf: rf
+##########
+
+average classification accuracy: 0.8280
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.83       | 0.82   | 0.83    | 1407.00 |
+| link    | 0.83       | 0.83   | 0.83    | 1407.00 |
+
+##########
+Date: 24/06/2020 11:16:04
+network: oz
+clf: rf
+##########
+
+average classification accuracy: 0.8329
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.82       | 0.85   | 0.84    | 368.00 |
+| link    | 0.85       | 0.81   | 0.83    | 368.00 |
+
+##########
+Date: 24/06/2020 11:17:12
+network: petster_friendships
+clf: rf
+##########
+
+average classification accuracy: 0.8759
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.90       | 0.85   | 0.87    | 2507.00 |
+| link    | 0.86       | 0.90   | 0.88    | 2507.00 |
+
+##########
+Date: 24/06/2020 11:18:48
+network: petster_hamster
+clf: rf
+##########
+
+average classification accuracy: 0.9608
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.97       | 0.95   | 0.96    | 3327.00 |
+| link    | 0.95       | 0.97   | 0.96    | 3327.00 |
+
+##########
+Date: 24/06/2020 11:19:33
+network: protein
+clf: rf
+##########
+
+average classification accuracy: 0.8531
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.84       | 0.87   | 0.85    | 456.00 |
+| link    | 0.86       | 0.84   | 0.85    | 456.00 |
+
+##########
+Date: 24/06/2020 11:19:40
+network: scsc
+clf: rf
+##########
+
+average classification accuracy: 0.9083
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.90       | 0.92   | 0.91    | 120.00 |
+| link    | 0.92       | 0.90   | 0.91    | 120.00 |
+
+##########
+Date: 24/06/2020 11:19:51
+network: slavko
+clf: rf
+##########
+
+average classification accuracy: 0.8941
+number of runs: 1
+
+| class   | precission | recall | f-score | support |
+|---------|------------|--------|---------|---------|
+| no link | 0.89       | 0.90   | 0.89    | 444.00 |
+| link    | 0.90       | 0.89   | 0.89    | 444.00 |
+
