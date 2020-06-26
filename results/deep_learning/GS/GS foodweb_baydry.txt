@@ -1,0 +1,122 @@
+C:\Users\Grega\AppData\Local\Programs\Python\Python38\pythonw.exe C:/Users/Grega/PycharmProjects/ina-final-project/src/deep_learning.py
+--------------------------------
+Reading dataset from C:\Users\Grega\PycharmProjects\ina-final-project\data\deep_learning\final\foodweb_baydry_transformed
+Finished reading data.
+Setting up graph.
+Finished setting up graph.
+Setting up examples.
+Finished setting up examples.
+Dataset properties:
+Mode: train
+Number of vertices: 128
+Number of static edges: 790
+Number of temporal edges: 790
+Number of examples/datapoints: 1050
+--------------------------------
+GraphSAGE(
+  (aggregators): ModuleList(
+    (0): MaxPoolAggregator(
+      (fc1): Linear(in_features=128, out_features=128, bias=True)
+      (relu): ReLU()
+    )
+    (1): MaxPoolAggregator(
+      (fc1): Linear(in_features=64, out_features=64, bias=True)
+      (relu): ReLU()
+    )
+  )
+  (fcs): ModuleList(
+    (0): Linear(in_features=256, out_features=64, bias=True)
+    (1): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (bns): ModuleList(
+    (0): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (dropout): Dropout(p=0, inplace=False)
+  (relu): ReLU()
+)
+--------------------------------
+Computing ROC-AUC score for the training dataset before training.
+ROC-AUC score: 0.4649
+--------------------------------
+Setting up a new session...
+--------------------------------
+Training.
+Finished training.
+--------------------------------
+--------------------------------
+Saving model at C:\Users\Grega\PycharmProjects\ina-final-project\trained_models\graphsage_agg_class_MaxPoolAggregator_hidden_dims_64_num_samples_-1_batch_size_32_epochs_20_lr_0.0005_weight_decay_0.0005_duplicate_False_repeat_True.pth
+Finished saving model.
+--------------------------------
+--------------------------------
+Computing ROC-AUC score for the training dataset after training.
+ROC-AUC score: 0.8644
+--------------------------------
+Threshold: 0.4118, accuracy: 0.7905
+Classification report
+               precision    recall  f1-score   support
+
+         0.0       0.79      0.79      0.79       525
+         1.0       0.79      0.79      0.79       525
+
+    accuracy                           0.79      1050
+   macro avg       0.79      0.79      0.79      1050
+weighted avg       0.79      0.79      0.79      1050
+
+--------------------------------
+Reading dataset from C:\Users\Grega\PycharmProjects\ina-final-project\data\deep_learning\final\foodweb_baydry_transformed
+Finished reading data.
+Setting up graph.
+Finished setting up graph.
+Setting up examples.
+Finished setting up examples.
+Dataset properties:
+Mode: val
+Number of vertices: 128
+Number of static edges: 1324
+Number of temporal edges: 1324
+Number of examples/datapoints: 554
+--------------------------------
+--------------------------------
+Computing ROC-AUC score for the validation dataset after training.
+Classification report
+               precision    recall  f1-score   support
+
+         0.0       0.46      0.70      0.55       277
+         1.0       0.35      0.16      0.22       277
+
+    accuracy                           0.43       554
+   macro avg       0.41      0.43      0.39       554
+weighted avg       0.41      0.43      0.39       554
+
+Finished validating.
+--------------------------------
+--------------------------------
+Reading dataset from C:\Users\Grega\PycharmProjects\ina-final-project\data\deep_learning\final\foodweb_baydry_transformed
+Finished reading data.
+Setting up graph.
+Finished setting up graph.
+Setting up examples.
+Finished setting up examples.
+Dataset properties:
+Mode: test
+Number of vertices: 128
+Number of static edges: 1602
+Number of temporal edges: 1602
+Number of examples/datapoints: 1034
+--------------------------------
+--------------------------------
+Computing ROC-AUC score for the test dataset after training.
+Classification report
+               precision    recall  f1-score   support
+
+         0.0       0.46      0.74      0.57       517
+         1.0       0.32      0.12      0.18       517
+
+    accuracy                           0.43      1034
+   macro avg       0.39      0.43      0.37      1034
+weighted avg       0.39      0.43      0.37      1034
+
+Finished testing.
+--------------------------------
+
+Process finished with exit code 0

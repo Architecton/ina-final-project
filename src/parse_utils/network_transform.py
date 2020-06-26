@@ -2,8 +2,8 @@ import os
 
 
 def main():
-    path = os.getcwd()[:len(os.getcwd()) - 3] + "data\\deep_learning\\djava"
-    out = os.getcwd()[:len(os.getcwd()) - 3] + "data\\deep_learning\\djava_transformed"
+    path = os.getcwd()[:len(os.getcwd()) - 3] + "data\\deep_learning\\final\\slavko"
+    out = path + "_transformed"
     f = open(path, "r")
     g = open(out, "w")
     for line in f:

@@ -1,0 +1,152 @@
+% Homework report template for courses lectured by Blaz Zupan.
+% For more on LaTeX please consult its documentation pages, or
+% read tutorials like http://tobi.oetiker.ch/lshort/lshort.pdf.
+%
+% Use pdflatex to produce a PDF of a report.
+\documentclass[11pt,journal,compsoc]{article}
+%\documentclass[a4paper,11pt]{IEEEtran}
+\usepackage{a4wide}
+\usepackage{fullpage}
+\usepackage{float}
+\usepackage[toc,page]{appendix}
+\usepackage[pdftex]{graphicx} % for figures
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{verbatim}
+\definecolor{light-gray}{gray}{0.95}
+\usepackage{listings} % for inclusion of Python code
+\usepackage{hyperref}
+\renewcommand{\baselinestretch}{1.05}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\usepackage{fancyvrb}
+\usepackage{lipsum} % just for the example
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\lstset{ % style for Python code, improve if needed
+language=Python,
+basicstyle=\footnotesize,
+basicstyle=\ttfamily\footnotesize\setstretch{1},
+backgroundcolor=\color{light-gray},
+}
+
+\usepackage{lipsum} % for mock text
+\ifCLASSOPTIONcompsoc
+  % IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  % \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  % \usepackage{cite}
+\fi
+\newenvironment{descitemize} % a mixture of description and itemize
+  {\begin{description}[leftmargin=*,before=\let\makelabel\descitemlabel]}
+  {\end{description}}
+\renewcommand{\figurename}{Figure}
+\newcommand{\descitemlabel}[1]{%
+  \textbullet\ \textbf{#1}%
+}
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+
+\newcommand\MYhyperrefoptions{bookmarks=true,bookmarksnumbered=true,
+pdfpagemode={UseOutlines},plainpages=false,pdfpagelabels=true,
+colorlinks=true,linkcolor={black},citecolor={black},urlcolor={black},
+pdftitle={Bare Demo of IEEEtran.cls for Computer Society Journals},%<!CHANGE!
+pdfsubject={Typesetting},%<!CHANGE!
+pdfauthor={Michael D. Shell},%<!CHANGE!
+pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
+             template}}%<^!CHANGE!
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\renewcommand\IEEEkeywordsname{Ključne besede}
+\renewcommand{\abstractname}{Abstrakt}
+\renewcommand\refname{References}
+\title{\LARGE UsIng GAT and GraphSAGE for Link Prediction in Complex Networks}
+\author{\normalsize Grega Dvor\v{s}ak\\
+University of Ljubljana, Faculty for Computer and Information Science\\ \medskip 
+gd4667@student.uni-lj.si }
+\date{\today}
+\usepackage{titlesec}
+
+
+
+\begin{document}
+
+\maketitle
+
+\section{GAT}
+
+Graph Attention Networks (GAT) are neural network architectures, used on graph-structured data, which mainly address some issues of convolutional neural networks by applying masked self-attentional layers in the network \cite{velikovi2017graph}. GAT networks stack layers to enable specifying weights over a node neighbourhood's features without the use of costly mathematical operations such as matrix inversion etc. Attention mechanisms are commonly used in sequence-based tasks, as they allow dealing with variable input sizes and give a bigger importance to the most relevant parts of the input. In combination with RNNs or convolutions, the attention mechanisms can be used to form an architecture which performs node classification and link prediction.
+
+GAT compute representations of nodes by combining the node's neighbourhood vectors. There is a scalability issue, due to the algorithm taking the whole network and recursively expanding neighbourhoods across layers, as the expansion of neighbourhoods may become too expensive in scale free networks \cite{gu2019link}. Due to this fact, we do not expect the scores to be high for the GAT approach in scale free networks. The reason for choosing this approach is to use GAT in combination with the next described approach GraphSAGE to achieve better results.
+
+GAT takes a set of node features as an input, where each feature is an attribute vector. The goal is to transfer the input features into high-level output features using a learnable linear transformation, which is represented by a weight matrix. A neural network is used to compute the attention coefficients between nodes. The final step is to aggregate the node's features as a combination of their neighbours. The implementation of link prediction with the GAT network deep learning approach was adopted from \cite{gagflp}, originally using datasets from \cite{nr}, which were then replaced by the datasets used in all other approaches.
+
+\section{GraphSAGE}
+
+The main idea of GraphSAGE \cite{article} is to sample a fixed size neighbourhood and perform a specific aggregator over it. An example of an aggregator would be a mean of all neighbours' feature vectors). It is used as an inductive method and can be applied in a recurrent neural network. By using an aggregator, it is used as a lower-dimensional vector embedding which embeds high dimensional information about a node's neighbourhood into a dense vector and can thereby be used in neural networks and other machine learning tasks. GraphSAGE is an inductive approach, which means that it can work with evolving real-life networks, most commonly seen as representations of the internet or web pages. This kind of approach includes aligning the new information to the existing network in order to match the data and work correctly. One of the main benefits of using GraphSAGE is solving the main drawback of the GAT method and working well with larger and scale free networks \cite{gu2019link}.
+
+The learning in GraphSAGE occurs when learning how to aggregate feature information (node degree, node profile information, text attributes) The model parameters are learned by applying stochastic gradient descent and backpropagation. At each step of learning, the nodes get an increasing amount of information from the neighbourhood, which in turn gets more information from its neighbourhood, so nodes eventually obtain information form the whole network. The full algorithm can be seen in \cite{article}. The possible aggregators are: the mean aggregator, where the element-wise mean of the vectors is used; the LSTM aggregator, based on LSTM architecture \cite{lstm}; and the pooling aggregator, where an element-wise max-pooling operation is applied.
+
+The main problems of the GraphSAGE method are that it mainly applies node labels as the supervised information, which are scarce in real networks. Linkages typically provide more information about structure and evolution. They also provide information about node popularity and should therefore be used as the supervised information \cite{gu2019link}. Similarly as with GAT, the implementation of the GraphSAGE method was adopted after \cite{gagflp}, originally using datasets from \cite{nr}, which were later replaced by the datasets the datasets used in all other methods.
+
+
+\section{Future Work}
+
+In the future, a possible goal would be to implement a method illustrated in \cite{gu2019link}, which combines GAT and GraphSAGE approaches, to achieve better results and solves the drawbacks described when using these two methods.
+
+
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+
+\end{document}
