@@ -1,0 +1,132 @@
+C:\Users\Grega\AppData\Local\Programs\Python\Python38\pythonw.exe C:/Users/Grega/PycharmProjects/ina-final-project/src/deep_learning.py
+--------------------------------
+Reading dataset from C:\Users\Grega\PycharmProjects\ina-final-project\data\deep_learning\final\moreno_blogs_transformed
+Finished reading data.
+Setting up graph.
+Finished setting up graph.
+Setting up examples.
+Finished setting up examples.
+Dataset properties:
+Mode: train
+Number of vertices: 1224
+Number of static edges: 7039
+Number of temporal edges: 7039
+Number of examples/datapoints: 9512
+--------------------------------
+GAT(
+  (attn): ModuleList(
+    (0): GraphAttention(
+      (fcs): ModuleList(
+        (0): Linear(in_features=1224, out_features=64, bias=True)
+      )
+      (a): ModuleList(
+        (0): Linear(in_features=128, out_features=1, bias=True)
+      )
+      (dropout): Dropout(p=0, inplace=False)
+      (softmax): Softmax(dim=0)
+      (leakyrelu): LeakyReLU(negative_slope=0.01)
+    )
+    (1): GraphAttention(
+      (fcs): ModuleList(
+        (0): Linear(in_features=64, out_features=1, bias=True)
+      )
+      (a): ModuleList(
+        (0): Linear(in_features=2, out_features=1, bias=True)
+      )
+      (dropout): Dropout(p=0, inplace=False)
+      (softmax): Softmax(dim=0)
+      (leakyrelu): LeakyReLU(negative_slope=0.01)
+    )
+  )
+  (bns): ModuleList(
+    (0): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (dropout): Dropout(p=0, inplace=False)
+  (elu): ELU(alpha=1.0)
+)
+--------------------------------
+Computing ROC-AUC score for the training dataset before training.
+ROC-AUC score: 0.5128
+--------------------------------
+Setting up a new session...
+--------------------------------
+Training.
+Finished training.
+--------------------------------
+--------------------------------
+Saving model at C:\Users\Grega\PycharmProjects\ina-final-project\trained_models\graphsage_agg_class_MaxPoolAggregator_hidden_dims_64_num_samples_-1_batch_size_32_epochs_20_lr_0.0005_weight_decay_0.0005_duplicate_False_repeat_True.pth
+Finished saving model.
+--------------------------------
+--------------------------------
+Computing ROC-AUC score for the training dataset after training.
+ROC-AUC score: 0.8872
+--------------------------------
+Threshold: 0.4605, accuracy: 0.8052
+Classification report
+               precision    recall  f1-score   support
+
+         0.0       0.80      0.81      0.81      4756
+         1.0       0.81      0.80      0.81      4756
+
+    accuracy                           0.81      9512
+   macro avg       0.81      0.81      0.81      9512
+weighted avg       0.81      0.81      0.81      9512
+
+--------------------------------
+Reading dataset from C:\Users\Grega\PycharmProjects\ina-final-project\data\deep_learning\final\moreno_blogs_transformed
+Finished reading data.
+Setting up graph.
+Finished setting up graph.
+Setting up examples.
+Finished setting up examples.
+Dataset properties:
+Mode: val
+Number of vertices: 1224
+Number of static edges: 11795
+Number of temporal edges: 11795
+Number of examples/datapoints: 4946
+--------------------------------
+--------------------------------
+Computing ROC-AUC score for the validation dataset after training.
+Classification report
+               precision    recall  f1-score   support
+
+         0.0       0.76      0.51      0.61      2473
+         1.0       0.63      0.84      0.72      2473
+
+    accuracy                           0.67      4946
+   macro avg       0.70      0.67      0.66      4946
+weighted avg       0.70      0.67      0.66      4946
+
+Finished validating.
+--------------------------------
+--------------------------------
+Reading dataset from C:\Users\Grega\PycharmProjects\ina-final-project\data\deep_learning\final\moreno_blogs_transformed
+Finished reading data.
+Setting up graph.
+Finished setting up graph.
+Setting up examples.
+Finished setting up examples.
+Dataset properties:
+Mode: test
+Number of vertices: 1224
+Number of static edges: 14268
+Number of temporal edges: 14268
+Number of examples/datapoints: 9512
+--------------------------------
+--------------------------------
+Computing ROC-AUC score for the test dataset after training.
+Classification report
+               precision    recall  f1-score   support
+
+         0.0       0.79      0.49      0.60      4756
+         1.0       0.63      0.87      0.73      4756
+
+    accuracy                           0.68      9512
+   macro avg       0.71      0.68      0.67      9512
+weighted avg       0.71      0.68      0.67      9512
+
+Finished testing.
+--------------------------------
+
+Process finished with exit code 0

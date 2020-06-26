@@ -62,7 +62,7 @@ args = {
     "task": "link_prediction",
 
     "dataset": "IAContactsHypertext",
-    "dataset_path": os.getcwd()[:len(os.getcwd()) - 3] + "data\\deep_learning\\djava_transformed",
+    "dataset_path": os.getcwd()[:len(os.getcwd()) - 3] + "data\\deep_learning\\final\\moreno_blogs_transformed",
 
     "mode": "train",
     "generate_neg_examples": True,
@@ -75,14 +75,14 @@ args = {
 
     "cuda": True,
     # GAT or GraphSAGE
-    "model": "GAT",
+    "model": "GraphSAGE",
     "agg_class": "MaxPoolAggregator",
     "num_heads": [1, 1],
     "hidden_dims": [64],
     "dropout": 0,
     "num_samples": -1,
 
-    "epochs": 9,
+    "epochs": 20,
     "batch_size": 32,
     "lr": 5e-4,
     "weight_decay": 5e-4,
@@ -155,7 +155,7 @@ if not config['load']:
             if config["model"] == "GraphSAGE":
                 y_true.extend(labels.detach().cpu().numpy())
                 y_scores.extend(scores.detach().cpu().numpy())
-            print('    Batch {} / {}'.format(idx + 1, num_batches))
+            # print('    Batch {} / {}'.format(idx + 1, num_batches))
     y_true = np.array(y_true).flatten()
     y_scores = np.array(y_scores).flatten()
     area = roc_auc_score(y_true, y_scores)
@@ -199,7 +199,8 @@ if not config['load']:
                 running_loss += loss.item()
             if (idx + 1) % stats_per_batch == 0:
                 running_loss /= stats_per_batch
-                print('    Batch {} / {}: loss {:.4f}'.format(
+                """
+                 print('    Batch {} / {}: loss {:.4f}'.format(
                     idx + 1, num_batches, running_loss))
                 if (torch.sum(labels.long() == 0).item() > 0) and (torch.sum(labels.long() == 1).item() > 0):
                     if config["model"] == "GAT":
@@ -207,6 +208,7 @@ if not config['load']:
                     elif config["model"] == "GraphSAGE":
                         area = roc_auc_score(labels.detach().cpu().numpy(), scores.detach().cpu().numpy())
                     print('    ROC-AUC score: {:.4f}'.format(area))
+                """
                 running_loss = 0.0
                 num_correct, num_examples = 0, 0
             if use_visdom:
@@ -259,7 +261,7 @@ if not config['load']:
             elif config["model"] == "GraphSAGE":
                 y_true.extend(labels.detach().cpu().numpy())
                 y_scores.extend(scores.detach().cpu().numpy())
-            print('    Batch {} / {}'.format(idx + 1, num_batches))
+            # print('    Batch {} / {}'.format(idx + 1, num_batches))
     y_true = np.array(y_true).flatten()
     y_scores = np.array(y_scores).flatten()
     area = roc_auc_score(y_true, y_scores)
@@ -298,7 +300,7 @@ if not config['load']:
                 y_pred.extend(predictions.detach().cpu().numpy())
             total_correct += torch.sum(predictions == labels.long()).item()
             total_examples += len(labels)
-            print('    Batch {} / {}'.format(idx + 1, num_batches))
+            # print('    Batch {} / {}'.format(idx + 1, num_batches))
     print('Threshold: {:.4f}, accuracy: {:.4f}'.format(t, total_correct / total_examples))
     y_true = np.array(y_true).flatten()
     y_pred = np.array(y_pred).flatten()
@@ -353,6 +355,7 @@ for (idx, batch) in enumerate(loader):
     if (idx + 1) % stats_per_batch == 0:
         running_loss /= stats_per_batch
         accuracy = num_correct / num_examples
+        """
         print('    Batch {} / {}: loss {:.4f}, accuracy {:.4f}'.format(
             idx + 1, num_batches, running_loss, accuracy))
         if (torch.sum(labels.long() == 0).item() > 0) and (torch.sum(labels.long() == 1).item() > 0):
@@ -362,17 +365,18 @@ for (idx, batch) in enumerate(loader):
             elif config["model"] == "GraphSAGE":
                 area = roc_auc_score(labels.detach().cpu().numpy(), scores.detach().cpu().numpy())
             print('    ROC-AUC score: {:.4f}'.format(area))
+        """
         running_loss = 0.0
         num_correct, num_examples = 0, 0
 total_loss /= num_batches
 total_accuracy = total_correct / total_examples
-print('Loss {:.4f}, accuracy {:.4f}'.format(total_loss, total_accuracy))
+# print('Loss {:.4f}, accuracy {:.4f}'.format(total_loss, total_accuracy))
 y_true = np.array(y_true).flatten()
 y_scores = np.array(y_scores).flatten()
 y_pred = np.array(y_pred).flatten()
 report = classification_report(y_true, y_pred)
 area = roc_auc_score(y_true, y_scores)
-print('ROC-AUC score: {:.4f}'.format(area))
+# print('ROC-AUC score: {:.4f}'.format(area))
 print('Classification report\n', report)
 print('Finished validating.')
 print('--------------------------------')
@@ -426,6 +430,7 @@ for (idx, batch) in enumerate(loader):
     if (idx + 1) % stats_per_batch == 0:
         running_loss /= stats_per_batch
         accuracy = num_correct / num_examples
+        """
         print('    Batch {} / {}: loss {:.4f}, accuracy {:.4f}'.format(
             idx + 1, num_batches, running_loss, accuracy))
         if (torch.sum(labels.long() == 0).item() > 0) and (torch.sum(labels.long() == 1).item() > 0):
@@ -434,17 +439,18 @@ for (idx, batch) in enumerate(loader):
             elif config["model"] == "GraphSAGE":
                 area = roc_auc_score(labels.detach().cpu().numpy(), scores.detach().cpu().numpy())
             print('    ROC-AUC score: {:.4f}'.format(area))
+            """
         running_loss = 0.0
         num_correct, num_examples = 0, 0
 total_loss /= num_batches
 total_accuracy = total_correct / total_examples
-print('Loss {:.4f}, accuracy {:.4f}'.format(total_loss, total_accuracy))
+# print('Loss {:.4f}, accuracy {:.4f}'.format(total_loss, total_accuracy))
 y_true = np.array(y_true).flatten()
 y_scores = np.array(y_scores).flatten()
 y_pred = np.array(y_pred).flatten()
 report = classification_report(y_true, y_pred)
 area = roc_auc_score(y_true, y_scores)
-print('ROC-AUC score: {:.4f}'.format(area))
+# print('ROC-AUC score: {:.4f}'.format(area))
 print('Classification report\n', report)
 print('Finished testing.')
 print('--------------------------------')
